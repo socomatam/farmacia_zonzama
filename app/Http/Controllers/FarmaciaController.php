@@ -8,14 +8,40 @@ class FarmaciaController extends Controller
 {
 	
 	
-	/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	
     public function products()
     {
         return view('farmacia.products');
+    }
+	
+	public function rawMaterials()
+    {
+        
+    }
+	
+	public function howWeDo()
+    {
+        
+    }
+	
+	public function whoWeAre()
+    {
+        
+    }
+	
+	public function collaborators()
+    {
+        
+    }
+	
+	public function projectCez()
+    {
+        
+    }
+	
+	public function contact()
+    {
+        
     }
 	
     /**
