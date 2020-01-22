@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+//Route::get('/products', function () {
+ //   return view('farmacia.products');
+//});
+
+
+
 
 Auth::routes();
+
+Route::resource('/', 'FarmaciaController');
+
+Route::get('/products', 'FarmaciaController@products' );
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -31,7 +31,7 @@
 				<a id="inicio" href=""> <i class="fas fa-home"></i>Inicio</a>
 				
 				
-				<a href="{{ url('/farmacia/products') }}"> <i class="fas fa-tags"></i>Productos </a>
+				<a href="{{ url('/products') }}"> <i class="fas fa-tags"></i>Productos </a>
 				<a href="html/raw_materials.html"> <i class="fas fa-truck"></i>Materias Primas </a>
 				<a href="html/how_we_do.html"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
 				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i> </a>
