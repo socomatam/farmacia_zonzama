@@ -1,22 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Farmacia Zonzamas</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/app.css', true) }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/variable_web_content.css', true) }}">
+		<script src="https://kit.fontawesome.com/63246e723f.js" crossorigin="anonymous"></script>
+		<script src="{{ asset('/assets/js/app.js',true)}}"></script>
+		<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
+		
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="cabecera">
+				<!--<img src="img/banner.png">-->
+				<select>
+					<option>Idioma</option>
+					<option>Inglés</option>
+					<option>Español</option>
+				</select>
+			
+			</div>
+	
+			<div class="barra_menu">
+				<a href=""><i class="fas fa-bars"></i></a>
+				<a id="inicio" href=""> <i class="fas fa-home"></i>Inicio</a>
+				
+				
+				<a href="{{ url('/farmacia/products') }}"> <i class="fas fa-tags"></i>Productos </a>
+				<a href="html/raw_materials.html"> <i class="fas fa-truck"></i>Materias Primas </a>
+				<a href="html/how_we_do.html"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
+				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i> </a>
+			</div>
+
+			<div class="web_content">
+				@yield('content')
+			</div>
+
+
+			<!--end web_content-->
+			
+			<div class="pie_pagina">
+				<a href="html/who_we_are.html"> <i class="fas fa-question-circle"></i>¿Quiénes somos?</a> |
+				<a href="html/collaborators.html"> <i class="fas fa-users"></i>Colaboradores</a> |
+				<a href="htmlproject_cez.html"> <i class="fas fa-user-graduate"></i>Proyecto CEZ</a> |
+				<a href="html/contact.html"> <i class="fas fa-phone-alt"></i>Contacto</a>
+			</div>
+		</div>
+	</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+   
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
+   
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -31,14 +139,13 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                     
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -78,3 +185,5 @@
     </div>
 </body>
 </html>
+
+-->

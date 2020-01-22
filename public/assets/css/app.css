@@ -1,0 +1,159 @@
+/*Fuentes*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300&display=swap');
+
+/*
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+*/
+
+body{	
+	
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+/*CONTENEDOR DE LA WEB*/
+
+.container{
+	border: 1px black solid;
+	font-family: 'Open Sans', sans-serif;
+	margin: auto;
+	width: 960px;
+}
+
+
+/*CABECERA*/
+.cabecera{
+	background-image: url("../img/banner.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 204px;
+	width: 100%;
+}
+
+select{
+	float: right;
+	margin: 10px;
+	width: 80px;
+	height: 30px;
+}
+
+
+/*MENÚ DE NAVEGACIÓN*/
+.barra_menu{
+
+	border-top: 1px solid black;
+	height: 50px;
+    background: linear-gradient(151deg, #4CAF52, #7CD482);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    /*
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    */
+    display: grid;
+    grid-template-columns: 5% 8% 11% 15% 20% 7%;
+    align-items: center;
+}
+
+.fa-bars{
+	/*transform: scale(2);*/
+	font-size: 30px;
+	font-weight: 100 ;
+}
+
+
+.fa-shopping-cart{ font-size: 20px }
+
+
+#seleccionado{ color: white;}
+
+
+.barra_menu a{
+	text-decoration: none;
+	color: black;
+	margin-left: 24px;
+}
+
+.barra_menu i{ margin-right: 5px;}
+
+.carrito{
+	position: relative;
+	left: 490%;
+}
+
+/*CONTENIDO DE LA WEB*/
+
+.web_content{
+	border-top: 1px solid black;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+
+/*PIE DE PÁGINA*/
+
+.pie_pagina{ height: 50px;}
+
+.pie_pagina{
+
+	border-top: 1px solid black;
+	font-family: 'Open Sans', sans-serif;
+
+
+	font-size: 12px;
+	background: linear-gradient(151deg, #4CAF52, #7CD482);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+    align-items: center;
+
+}
+
+.pie_pagina a{
+	text-decoration: none;
+	color: black;
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+.pie_pagina i{ margin-right: 5px;}
+
+
+/*Pruebas*/
+
+@media screen and (max-width: 480px) {
+	.fa-tags{
+		display: none;
+	}
+
+	.cabecera{
+		background-image: url("../img/banner.png");
+		background-size: 100% 100%;	
+	}
+
+	.barra_menu img{
+		display: none;
+	}
+
+	.barra_menu{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.pie_pagina{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	
+}
+
+
+
+
