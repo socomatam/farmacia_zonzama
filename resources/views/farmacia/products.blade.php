@@ -51,7 +51,7 @@
 		</div>
 		<div>
 			<img src="../img/items.PNG">
-			<div>sdas</div>
+			<div>sdas</div>s
 			<div>sdas</div>
 			<div>sdas</div>
 		</div>

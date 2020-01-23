@@ -16,32 +16,32 @@ class FarmaciaController extends Controller
 	
 	public function rawMaterials()
     {
-        
+        return view('farmacia.raw_materials');
     }
 	
 	public function howWeDo()
     {
-        
+        return view('farmacia.how_we_do');
     }
 	
 	public function whoWeAre()
     {
-        
+        return view('farmacia.who_we_are');
     }
 	
 	public function collaborators()
     {
-        
+        return view('farmacia.collaborators');
     }
 	
 	public function projectCez()
     {
-        
+        return view('farmacia.project_cez');
     }
 	
 	public function contact()
     {
-        
+        return view('farmacia.contact');
     }
 	
     /**
