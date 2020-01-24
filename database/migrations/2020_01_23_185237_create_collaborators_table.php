@@ -17,9 +17,11 @@ class CreateCollaboratorsTable extends Migration
             $table->bigIncrements('id');
 			$table->string('nombre');
 			$table->LongText('descripcion');
-			$table->binary('logo');
+			//$table->binary('logo');
             $table->timestamps();
         });
+		
+		DB::statement("ALTER TABLE collaborators ADD logo LONGBLOB");
     }
 
     /**

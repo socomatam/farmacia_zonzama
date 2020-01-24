@@ -4,48 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Collaborator;
+use App\Rawmaterial;
+use App\Tutorial;
+
 
 class FarmaciaController extends Controller
 {
 	
-	
-	
-    public function products()
-    {
+    public function products(){
         return view('farmacia.products');
-    }
+    }//end products
 	
-	public function rawMaterials()
-    {
-        return view('farmacia.raw_materials');
-    }
+	public function rawMaterials(){
+		$rawMaterials = Rawmaterial::all();
+        return view('farmacia.raw_materials', compact('rawMaterials'));
+    }//end raw material
 	
-	public function howWeDo()
-    {
-        return view('farmacia.how_we_do');
-    }
+	public function howWeDo(){
+		$tutorial = Tutorial::all();
+        return view('farmacia.how_we_do', compact('tutorial'));
+    }//end howwedo
 	
-	public function whoWeAre()
-    {
+	public function whoWeAre(){
         return view('farmacia.who_we_are');
-    }
+    }//end who we are
 	
-	public function collaborators()
-    {
+	public function collaborators(){
 		$collaborators = Collaborator::all();
-		//dd($collaborators);
         return view('farmacia.collaborators', compact('collaborators'));
-    }
+    }//end collabortors
 	
-	public function projectCez()
-    {
+	public function projectCez(){
         return view('farmacia.project_cez');
-    }
+    }//end project_cez
 	
-	public function contact()
-    {
+	public function contact(){
         return view('farmacia.contact');
-    }
+    }//end contact
 	
     /**
      * Display a listing of the resource.

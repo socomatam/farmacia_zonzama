@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+@section('content')
 <div class="collaborators">
 	
 	@foreach($collaborators as $c)
@@ -9,7 +10,6 @@
 		</div>
 	@endforeach
 	
-
 </div>
 
 @endsection

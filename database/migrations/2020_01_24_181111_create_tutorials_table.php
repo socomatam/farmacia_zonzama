@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRawmaterialsTable extends Migration
+class CreateTutorialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateRawmaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rawmaterials', function (Blueprint $table) {
+        Schema::create('tutorials', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('nombre');
 			$table->LongText('descripcion');
-			//$table->binary('imagen');
+			$table->LongText('url_video');
             $table->timestamps();
         });
-		
-		DB::statement("ALTER TABLE rawmaterials ADD imagen LONGBLOB");
     }
 
     /**
@@ -31,6 +29,6 @@ class CreateRawmaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rawmaterials');
+        Schema::dropIfExists('tutorials');
     }
 }
