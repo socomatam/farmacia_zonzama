@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Collaborator;
 
 class FarmaciaController extends Controller
 {
@@ -31,7 +32,9 @@ class FarmaciaController extends Controller
 	
 	public function collaborators()
     {
-        return view('farmacia.collaborators');
+		$collaborators = Collaborator::all();
+		//dd($collaborators);
+        return view('farmacia.collaborators', compact('collaborators'));
     }
 	
 	public function projectCez()

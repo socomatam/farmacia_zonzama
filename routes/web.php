@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::resource('/', 'FarmaciaController');
 
+
 /*Rutas a todas las páginas de la web*/
 Route::get('/products', 'FarmaciaController@products' );
 Route::get('/rawmaterials', 'FarmaciaController@rawMaterials' );
