@@ -13,4 +13,9 @@
 
 		@endforeach
 	</div>
+<style>
+	#como{
+		color:white;
+	}
+</style>
 @endsection

@@ -73,9 +73,7 @@ img {vertical-align: middle;}
   margin-bottom: 18px;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
+.active, .dot:hover { background-color: #717171;}
 
 /* Fading animation */
 .fade {
@@ -95,14 +93,11 @@ img {vertical-align: middle;}
     margin-bottom: 10px;
 }
 
-.image_galery img{
-  width: 100%;
-}
+.image_galery img{width: 100%;}
 
 .image_galery{
 	display: grid;
 	grid-template-columns: 22% 22% 22% 22%;
-	
 	grid-column-gap: 2.5%;
 	justify-content: center;
 
@@ -136,17 +131,13 @@ img {vertical-align: middle;}
   height: 35px;
 }
 
-.raw_materials div img{
-  width: 100%;
-
-}
+.raw_materials div img{ width: 100%;}
 
 .raw_materials div{ border: 0.5px solid grey;}
 
 .raw_materials{
   display: grid;
   grid-template-columns: 50% 50%;
-  
 }
 
 /*------------collaborators------------*/
@@ -154,26 +145,17 @@ img {vertical-align: middle;}
 .collaborators div {
   border: 1px solid grey;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
- 
   word-wrap: break-word;
- 
 }
 
 .collaborators p{
-  
   text-align: justify;
   font-size: 11px;
-
 }
 
-.collaborators h3{
-  margin-left: 12%;
-}
+.collaborators h3{margin-left: 12%;}
 
-.collaborators img{
-  width: 100%;
-  
-}
+.collaborators img{width: 100%;}
 
 .collaborators{
   display: grid;
@@ -186,9 +168,7 @@ img {vertical-align: middle;}
 }
 
 @media screen and (max-width: 480px) {
-  .collaborators{
-    display: inline-block;
-  }
+  .collaborators{display: inline-block;}
 }
 
 
@@ -215,18 +195,13 @@ img {vertical-align: middle;}
   margin-bottom: 20px;
 }
 
-.how_we_do_video{
-  width: 100%;
-}
+.how_we_do_video{ width: 100%;}
 
-.how_we_do h3,.fa-heart{
-  margin-left: 12%;
-}
+.how_we_do h3,.fa-heart{ margin-left: 12%;}
 
 /*----------contact---------*/
 
 hr{ 
-  
     border:         none;
     border-left:    1px solid hsla(200, 10%, 50%,100);  
 }
@@ -256,7 +231,6 @@ hr{
   height: 35px;
   width: 100px;
   cursor: pointer;
-
 }
 
 .contact textarea{
@@ -264,10 +238,7 @@ hr{
   resize: none;
 }
 
-.contact div{
- 
-  padding: 8%;
-}
+.contact div{padding: 8%;}
 
 .contact{
   display: grid;
@@ -352,23 +323,13 @@ hr{
   margin-bottom: 20px;
 }
 
-.prueba{
-  display: flex;
-}
+.prueba{ display: flex;}
 
-.items > div{
-  border: 1px solid grey;
+.items > div{border: 1px solid grey;}
 
-}
+.items div img{ width: 100%;}
 
-.items div img{
-  width: 100%;
-
-}
-
-.top div form select{
-  width: 90%;
-}
+.top div form select{ width: 90%;}
 
 
 /*----------who_we_are---------*/

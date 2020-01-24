@@ -36,4 +36,10 @@
 	elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
 </div>
 
+<style>
+	#proyecto_cez{
+		color:white;
+	}
+</style>
+
 @endsection

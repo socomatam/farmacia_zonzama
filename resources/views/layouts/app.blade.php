@@ -31,9 +31,9 @@
 				<a id="inicio" href="{{ url('/') }}"> <i class="fas fa-home"></i>Inicio</a>
 				
 				
-				<a href="{{ url('/products') }}"> <i class="fas fa-tags"></i>Productos </a>
-				<a href="{{ url('/rawmaterials') }}"> <i class="fas fa-truck"></i>Materias Primas </a>
-				<a href="{{ url('/howwedo') }}"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
+				<a id="productos" href="{{ url('/products') }}"> <i class="fas fa-tags"></i>Productos </a>
+				<a id="materias" href="{{ url('/rawmaterials') }}"> <i class="fas fa-truck"></i>Materias Primas </a>
+				<a id="como" href="{{ url('/howwedo') }}"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
 				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i> </a>
 			</div>
 
@@ -45,10 +45,10 @@
 			<!--end web_content-->
 			
 			<div class="pie_pagina">
-				<a href="{{ url('/whoweare') }}"> <i class="fas fa-question-circle"></i>¿Quiénes somos?</a> |
-				<a href="{{ url('/collaborators') }}"> <i class="fas fa-users"></i>Colaboradores</a> |
-				<a href="{{ url('/projectcez') }}"> <i class="fas fa-user-graduate"></i>Proyecto CEZ</a> |
-				<a href="{{ url('/contact') }}"> <i class="fas fa-phone-alt"></i>Contacto</a>
+				<a id="quien" href="{{ url('/whoweare') }}"> <i class="fas fa-question-circle"></i>¿Quiénes somos?</a> |
+				<a id="colaboradores" href="{{ url('/collaborators') }}"> <i class="fas fa-users"></i>Colaboradores</a> |
+				<a id="proyecto_cez" href="{{ url('/projectcez') }}"> <i class="fas fa-user-graduate"></i>Proyecto CEZ</a> |
+				<a id="contacto" href="{{ url('/contact') }}"> <i class="fas fa-phone-alt"></i>Contacto</a>
 			</div>
 		</div>
 	</body>

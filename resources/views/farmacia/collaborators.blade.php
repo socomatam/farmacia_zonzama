@@ -11,5 +11,9 @@
 	@endforeach
 	
 </div>
-
+<style>
+	#colaboradores{
+		color:white;
+	}
+</style>
 @endsection

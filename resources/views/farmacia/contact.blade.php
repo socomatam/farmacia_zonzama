@@ -33,4 +33,10 @@
 		</form>
 	</div>
 </div>
+
+<style>
+	#contacto{
+		color:white;
+	}
+</style>
 @endsection

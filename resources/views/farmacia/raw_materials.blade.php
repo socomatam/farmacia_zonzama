@@ -24,5 +24,10 @@
 		@endif 
 	@endforeach
 </div>
+<style>
+	#materias{
+		color:white;
+	}
+</style>
 
 @endsection

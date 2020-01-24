@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Collaborator;
 use App\Rawmaterial;
 use App\Tutorial;
+use App\Slider;
 
 
 class FarmaciaController extends Controller
@@ -47,10 +48,10 @@ class FarmaciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('welcome');
-    }
+    public function index(){
+		$imagenes = Slider::all();
+        return view('welcome', compact('imagenes'));
+    }//end index
 
     /**
      * Show the form for creating a new resource.

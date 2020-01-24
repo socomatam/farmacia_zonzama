@@ -65,4 +65,10 @@
 	</div>
 </div>
 
+<style>
+	#productos{
+		color:white;
+	}
+</style>
+
 @endsection
