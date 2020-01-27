@@ -7,13 +7,19 @@ use App\Collaborator;
 use App\Rawmaterial;
 use App\Tutorial;
 use App\Slider;
+use App\Product;
 
 
 class FarmaciaController extends Controller
 {
+	public function mostratProducto($id){
+		$product = Product::find($id);
+        return view('farmacia.oneproduct', compact('product'));
+	}
 	
     public function products(){
-        return view('farmacia.products');
+		$products = Product::all();
+        return view('farmacia.products', compact('products'));
     }//end products
 	
 	public function rawMaterials(){
@@ -82,7 +88,9 @@ class FarmaciaController extends Controller
      */
     public function show($id)
     {
-        //
+		$products = Product::all();
+		dd($products);
+        return view('farmacia.oneproduct', compact('products'));
     }
 
     /**

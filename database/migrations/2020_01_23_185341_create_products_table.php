@@ -16,9 +16,12 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('nombre');
-			$table->LongText('hola');
+			$table->LongText('descripcion');
+			$table->double('precio', 8, 2);
             $table->timestamps();
         });
+		
+		DB::statement("ALTER TABLE products ADD imagen LONGBLOB");
     }
 
     /**

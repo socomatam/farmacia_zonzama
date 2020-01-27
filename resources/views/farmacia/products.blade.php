@@ -19,48 +19,14 @@
 	</div>
 
 	<div class="items">
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>s
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
-		<div>
-			<img src="../img/items.PNG">
-			<div>sdas</div>
-			<div>sdas</div>
-			<div>sdas</div>
-		</div>
+		
+		@foreach($products as $p)
+			<div>
+				<a href="{{url('/item')}}/{{$p->id}}"><img src="data:image/png;base64,{{ chunk_split(base64_encode($p->imagen)) }}"></a>
+				<a href="https://developer.mozilla.org"><p>{{$p->nombre}}</p></a>
+				<p>{{$p->precio}} €</p>
+			</div>
+		@endforeach
 
 	</div>
 </div>
