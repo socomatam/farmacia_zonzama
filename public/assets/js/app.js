@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	/*
 	var slideIndex = 1;
 	showSlides(slideIndex);
@@ -43,5 +43,24 @@ $(document).ready(function(){
 		    dots[slideIndex-1].className += " active";
 	}//end showSlide
 	*/
-});//end jquery
+	$('.borrar').click(function() {
+		if (localStorage.clickcount) {
+			localStorage.clickcount = 0;
+		} else {
+			localStorage.clickcount = 0;
+		}
+		
+		$('.ct_carrito span').text(localStorage.clickcount);
+	}); //end click
+	
 
+	$('.btn_carrito').click(function() {
+		if (localStorage.clickcount) {
+			localStorage.clickcount = Number(localStorage.clickcount) + 1;
+		} else {
+			localStorage.clickcount = 1;
+		}
+		
+		$('.ct_carrito span').text(localStorage.clickcount);
+	}); //end click
+}); //end jquery

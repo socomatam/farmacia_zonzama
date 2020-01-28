@@ -11,15 +11,6 @@
 |
 */
 
-
-
-//Route::get('/products', function () {
- //   return view('farmacia.products');
-//});
-
-
-
-
 Auth::routes();
 
 Route::resource('/', 'FarmaciaController');
@@ -34,5 +25,6 @@ Route::get('/collaborators', 'FarmaciaController@collaborators' );
 Route::get('/projectcez', 'FarmaciaController@projectCez' );
 Route::get('/contact', 'FarmaciaController@contact' );
 Route::get('/item/{id}', 'FarmaciaController@mostratProducto' );
+Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');

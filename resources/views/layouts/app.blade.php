@@ -12,6 +12,12 @@
 		<script src="{{ asset('/assets/js/app.js',true)}}"></script>
 		<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 		
+		
+	
+
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		
 	</head>
 
 	<body>
@@ -34,7 +40,9 @@
 				<a id="productos" href="{{ url('/products') }}"> <i class="fas fa-tags"></i>Productos </a>
 				<a id="materias" href="{{ url('/rawmaterials') }}"> <i class="fas fa-truck"></i>Materias Primas </a>
 				<a id="como" href="{{ url('/howwedo') }}"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
-				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i> </a>
+				<a class="ct_carrito"><span></span></a>
+				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i></a>
+				
 			</div>
 
 			<div class="web_content">

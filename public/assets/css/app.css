@@ -44,20 +44,19 @@ select{
 
 /*MENÚ DE NAVEGACIÓN*/
 .barra_menu{
-
+	
 	border-top: 1px solid black;
 	height: 50px;
     background: linear-gradient(151deg, #4CAF52, #7CD482);
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
-    /*
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    */
+    
+
+	
     display: grid;
-    grid-template-columns: 5% 8% 11% 15% 20% 7%;
+    grid-template-columns: 6% 9% 12% 15% auto 2% 6% ;
     align-items: center;
+	
 }
 
 .fa-bars{
@@ -81,10 +80,23 @@ select{
 
 .barra_menu i{ margin-right: 5px;}
 
+
 .carrito{
-	position: relative;
-	left: 490%;
+
+
+	
 }
+
+.ct_carrito span{
+  text-align:center;
+  width: 20px;
+  border: 1px red solid;
+  background-color:red;
+  color:white;
+  border-radius:25px;
+}
+
+
 
 /*CONTENIDO DE LA WEB*/
 

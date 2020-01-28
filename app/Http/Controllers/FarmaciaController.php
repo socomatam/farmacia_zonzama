@@ -10,12 +10,28 @@ use App\Slider;
 use App\Product;
 
 
-class FarmaciaController extends Controller
-{
+class FarmaciaController extends Controller{
+	
+	private $contadorCarrito ;
+	
+	public function __construct($contadorCarrito = 55){
+		$this->contadorCarrito = $contadorCarrito; 
+	}
+	
+	 public function setContador($contadorCarrito){
+		//Le damos un valor a un atributo
+        $this->contadorCarrito = $contadorCarrito;
+    }
+
+	
+	public function comprar(){
+		return view('farmacia.buy');
+	}//end comprar
+	
 	public function mostratProducto($id){
 		$product = Product::find($id);
         return view('farmacia.oneproduct', compact('product'));
-	}
+	}//end mostrar productos
 	
     public function products(){
 		$products = Product::all();

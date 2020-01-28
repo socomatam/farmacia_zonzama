@@ -338,3 +338,40 @@ hr{
 }
 
 
+/*-----Login--------*/
+
+.login_container{
+	display:grid;
+	grid-template-columns: 70% 30%;
+	justify-content: space-around;
+	padding: 3%;
+}
+
+
+.login_container > div{
+	border: 1px solid grey;	
+}
+
+.login_container  button{
+	  background: linear-gradient(151deg, #4CAF52, #7CD482);
+	  color: white;
+	  border: none;
+	  border-radius: 30px;
+	  height: 35px;
+	  width: 100px;
+	  cursor: pointer;
+
+}
+
+#forgot_pass{
+	width:35%;
+	
+	
+}
+
+#forgot_pass a{
+	text-decoration: none;
+	color: white;
+	
+}
+

@@ -15,11 +15,12 @@
 		</div>
 		<div>
 			<img src="data:image/png;base64,{{ chunk_split(base64_encode($product->imagen)) }}">
-			<button>
-				s
+			<button class="btn_carrito">
+				Añadir al carro
 			</button>
-			<button>
-				s
+			<button><a href="{{url('/buy')}}">Comprar ahora</a></button>
+			<button class="borrar">
+				borrar
 			</button>
 		</div>
 		<div>
