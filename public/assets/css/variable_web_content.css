@@ -323,19 +323,72 @@ hr{
 /*-------One product------*/
 
 .one_product{
+	margin-top: 25px;
+	margin-bottom:25px;
 	display:grid;
-	grid-template-columns:10% 40% 50%;
-	margin: 2%;
+	grid-template-columns:7% 37% 47%;
+	
+	grid-column-gap: 1%;
+	justify-content: center;
 }
 
-.one_product div{ 
-	border: 1px solid grey;
+.one_product div:nth-child(2) > div:nth-child(1){ 	
+	border: 1px  solid grey;
 }
 
-.one_product div:nth-child(2) img{ 
+.one_product div:nth-child(2) div img{ 
 	margin: 3%;
 	width: 94%;
 }
+
+.one_product div:nth-child(2) button { 
+	background-color: #757575;
+	color: white;
+	border: 0px;
+}
+
+.one_product div:nth-child(2) button a{ 
+	text-decoration:none;
+	color: white;
+	
+}
+
+
+.one_product > div > div img{
+	width: 100%;
+}
+
+.one_product div:nth-child(1) > div{
+	margin-bottom: 8px;
+	border: 1px solid gray;
+	
+}
+
+.btn_oneproduct button:nth-child(2){
+
+}
+
+.btn_oneproduct button{
+
+}
+
+.btn_carrito{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.btn_oneproduct {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 30px;
+	
+}
+
+
+.one_product div {
+	
+}
+
 
 
 /*-----Login--------*/

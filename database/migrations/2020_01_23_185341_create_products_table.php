@@ -18,6 +18,11 @@ class CreateProductsTable extends Migration
 			$table->string('nombre');
 			$table->LongText('descripcion');
 			$table->double('precio', 8, 2);
+			$table->binary('miniatura_1');
+			$table->binary('miniatura_2');
+			$table->binary('miniatura_3');
+			$table->binary('miniatura_4');
+			$table->binary('miniatura_5');
             $table->timestamps();
         });
 		
