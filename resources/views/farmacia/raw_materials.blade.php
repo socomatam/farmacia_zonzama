@@ -1,5 +1,6 @@
 @extends('layouts.app') @section('content')
 <div class="raw_materials">
+	
 	@foreach($rawMaterials as $raw) 
 		@if($raw->id % 2 != 0 )
 			<div>

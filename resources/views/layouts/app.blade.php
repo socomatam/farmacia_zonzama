@@ -46,6 +46,7 @@
 			</div>
 
 			<div class="web_content">
+				@yield('selector')
 				@yield('content')
 			</div>
 

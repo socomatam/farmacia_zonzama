@@ -22,6 +22,21 @@ class FarmaciaController extends Controller{
 		//Le damos un valor a un atributo
         $this->contadorCarrito = $contadorCarrito;
     }
+	
+	public function orderProducts($value){
+		
+		if($value == 1){
+			$products = Product::orderBy('precio', 'DESC')->get();
+			return view('farmacia.products', compact('products'))->renderSections()['content'];
+		}
+		
+		if ($value = 2){
+			$products = Product::orderBy('precio', 'ASC')->get();
+			return view('farmacia.products', compact('products'))->renderSections()['content'];
+		}
+		
+		
+	}//end orderProduct
 
 	
 	public function comprar(){
@@ -71,8 +86,9 @@ class FarmaciaController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(){
-		$imagenes = Slider::all();
-        return view('welcome', compact('imagenes'));
+		$images = Slider::all();
+		$products = Product::all();
+        return view('welcome', compact('images', 'products'));
     }//end index
 
     /**

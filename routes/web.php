@@ -25,6 +25,7 @@ Route::get('/collaborators', 'FarmaciaController@collaborators' );
 Route::get('/projectcez', 'FarmaciaController@projectCez' );
 Route::get('/contact', 'FarmaciaController@contact' );
 Route::get('/item/{id}', 'FarmaciaController@mostratProducto' );
+Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
 Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,42 +1,33 @@
 @extends('layouts.app') @section('content')
 
 <div class="slideshow-container">
+
+	@foreach($images as $img)
 	<div class="mySlides fade">
-		<div class="numbertext">1 / 3</div>
-		<img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+		<div class="numbertext"></div>
+		<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}" style="width:100%">
+
 		<div class="text">Caption Text</div>
 	</div>
-
-	<div class="mySlides fade">
-		<div class="numbertext">2 / 3</div>
-		<img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
-		<div class="text">Caption Two</div>
-	</div>
-
-	<div class="mySlides fade">
-		<div class="numbertext">3 / 3</div>
-		<img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
-		<div class="text">Caption Three</div>
-	</div>
+	@endforeach
 
 	<a class="prev">&#10094;</a>
 	<a class="next">&#10095;</a>
 
 </div>
 <br>
-
 <div style="text-align:center">
+	@foreach($images as $img)
 	<span class="dot" onclick="currentSlide(1)"></span>
-	<span class="dot" onclick="currentSlide(2)"></span>
-	<span class="dot" onclick="currentSlide(3)"></span>
+	@endforeach
 </div>
 
 <div class="image_galery">
 	<div>
 		<div>
-		
-			<img src="{{ asset('/assets/img/blanco.PNG',true)}}">
-			
+
+			<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}">
+
 		</div>
 
 		<div>
@@ -84,10 +75,9 @@
 
 </div>
 
-
 <style>
-	#inicio{
-		color:white;
+	#inicio {
+		color: white;
 	}
 </style>
 

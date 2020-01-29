@@ -40,7 +40,7 @@
 	</div>
 
 	<div class="comentarios">
-		sds	
+		
 	</div>
 
 @endsection
