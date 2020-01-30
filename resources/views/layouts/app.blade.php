@@ -27,21 +27,21 @@
 				<!--<img src="img/banner.png">-->
 				<select>
 					<option>Idioma</option>
-					<option>Inglés</option>
+					<option>English</option>
 					<option>Español</option>
-					<option>Aleman</option>
+					<option>Deutsch</option>
 				</select>
 			
 			</div>
 	
 			<div class="barra_menu">
 				<a href=""><i class="fas fa-bars"></i></a>
-				<a id="inicio" href="{{ url('/') }}"> <i class="fas fa-home"></i>Inicio</a>
+				<a id="inicio" href="{{ url('/') }}"> <i class="fas fa-home"></i><span>Inicio</span></a>
 				
 				
-				<a id="productos" href="{{ url('/products') }}"> <i class="fas fa-tags"></i>Productos </a>
-				<a id="materias" href="{{ url('/rawmaterials') }}"> <i class="fas fa-truck"></i>Materias Primas </a>
-				<a id="como" href="{{ url('/howwedo') }}"> <i class="fas fa-flask"></i>¿Cómo lo hacemos? </a>
+				<a id="productos" href="{{ url('/products') }}"> <i class="fas fa-tags"></i><span>Productos</span> </a>
+				<a id="materias" href="{{ url('/rawmaterials') }}"> <i class="fas fa-truck"></i><span>Materias Primas</span> </a>
+				<a id="como" href="{{ url('/howwedo') }}"> <i class="fas fa-flask"></i><span>¿Cómo lo hacemos?</span> </a>
 				<a class="ct_carrito"><span></span></a>
 				<a class="carrito" href=""> <i class="fas fa-shopping-cart"></i></a>
 				
@@ -56,10 +56,10 @@
 			<!--end web_content-->
 			
 			<div class="pie_pagina">
-				<a id="quien" href="{{ url('/whoweare') }}"> <i class="fas fa-question-circle"></i>¿Quiénes somos?</a> |
-				<a id="colaboradores" href="{{ url('/collaborators') }}"> <i class="fas fa-users"></i>Colaboradores</a> |
-				<a id="proyecto_cez" href="{{ url('/projectcez') }}"> <i class="fas fa-user-graduate"></i>Proyecto CEZ</a> |
-				<a id="contacto" href="{{ url('/contact') }}"> <i class="fas fa-phone-alt"></i>Contacto</a>
+				<a id="quien" href="{{ url('/whoweare') }}"> <i class="fas fa-question-circle"></i><span>¿Quiénes somos?</span></a> |
+				<a id="colaboradores" href="{{ url('/collaborators') }}"> <i class="fas fa-users"></i><span>Colaboradores</span></a> |
+				<a id="proyecto_cez" href="{{ url('/projectcez') }}"> <i class="fas fa-user-graduate"></i><span>Proyecto CEZ</span></a> 
+				<a id="contacto" href="{{ url('/contact') }}"> <i class="fas fa-phone-alt"></i><span>Contacto</span></a>
 			</div>
 		</div>
 	</body>
