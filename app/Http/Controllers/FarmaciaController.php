@@ -18,7 +18,12 @@ class FarmaciaController extends Controller{
 		$this->contadorCarrito = $contadorCarrito; 
 	}
 	
-	 public function setContador($contadorCarrito){
+	
+	public function email(Request $request){
+		
+	}//end emial
+	
+	public function setContador($contadorCarrito){
 		//Le damos un valor a un atributo
         $this->contadorCarrito = $contadorCarrito;
     }
@@ -28,12 +33,12 @@ class FarmaciaController extends Controller{
 		if($value == 1){
 			$products = Product::orderBy('precio', 'DESC')->get();
 			return view('farmacia.products', compact('products'))->renderSections()['content'];
-		}
+		}//end if
 		
 		if ($value = 2){
 			$products = Product::orderBy('precio', 'ASC')->get();
 			return view('farmacia.products', compact('products'))->renderSections()['content'];
-		}
+		}//end if
 		
 		
 	}//end orderProduct

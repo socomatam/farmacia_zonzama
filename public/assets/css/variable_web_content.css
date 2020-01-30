@@ -206,9 +206,15 @@ hr{
     border-left:    1px solid hsla(200, 10%, 50%,100);  
 }
 
+.form_contact{
+	font-family: 'Open Sans', sans-serif;
+}
+
+
 .contact i {
   font-size: 1.2em;
-  color: grey
+  color: grey;
+  
 }
 
 .contact iframe{
@@ -245,6 +251,12 @@ hr{
   grid-template-columns: 45% 1px 45%;
   grid-column-gap: 1%;
   justify-content: center;
+ 
+}
+
+.contact div i span{
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
 }
 
 

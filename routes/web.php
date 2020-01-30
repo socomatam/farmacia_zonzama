@@ -17,6 +17,9 @@ Route::resource('/', 'FarmaciaController');
 
 
 /*Rutas a todas las pรกginas de la web*/
+
+Route::post('/farmacia/email', 'FarmaciaController@email');
+
 Route::get('/products', 'FarmaciaController@products' );
 Route::get('/rawmaterials', 'FarmaciaController@rawMaterials' );
 Route::get('/howwedo', 'FarmaciaController@howWeDo' );
@@ -27,5 +30,6 @@ Route::get('/contact', 'FarmaciaController@contact' );
 Route::get('/item/{id}', 'FarmaciaController@mostratProducto' );
 Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
 Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

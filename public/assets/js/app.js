@@ -19,37 +19,44 @@ $(document).ready(function() {
 		$('.ct_carrito span').text(localStorage.clickcount);
 	}); //end click
 	
-
+	//order all products by price
 	$('.order_products').change(function(){
 		var value = $('.order_products option:selected').val();
 		console.log(value);
 		$.ajax({
 			url: "/orderproducts/"+value,
-			success: function(respuesta) {
-				$('.section').html(respuesta);
+			success: function(response) {
+				$('.section').html(response);
 			} //fin succces
 		}); //end ajax
 	});//end click
 
-	/*
-	$('.order_products').on('change',function() {
-		//var value = $('.order_products option:selected').text();
-		var value = $('.order_products').val();
+	//Send an email
+	$('.form_contact input[type="submit"]').click(function(event){
+		event.preventDefault();
+		
+		var contact =  $('.form_contact input:nth-child(1)').val();
+		var email =  $('.form_contact input:nth-child(2)').val();
+		
+		console.log(contacto);
+		var mensaje = "d";
+		
 		$.ajax({
-			url: "/orderproducts/"+value,
+			method: "POST",
+			url:    "/farmacia/email",
+			data:	{
+						email: email,
+						contact: contact,
+						mensaje: mensaje,
+						
+					},
 			
-			success: function(respuesta) {
-			
-				
-				$('.section').html(respuesta);
-				
-				
-			} //fin succces
-		}); //end ajax
-		
-		
-	}); //end change
-	*/
+			success: function(){
+				 
+			},//fin succces
+		});//fin ajax
+	});//end click
+	
 	/*
 	var slideIndex = 1;
 	showSlides(slideIndex);
