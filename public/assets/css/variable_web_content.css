@@ -414,7 +414,17 @@ hr{
 
 
 .login_container > div{
-	border: 1px solid grey;	
+	
+	padding:15px;
+}
+
+.login_container .card-body{
+	margin:auto;
+	width:80%;
+}
+
+.login_label{
+	font-size:20px;
 }
 
 .login_container  button{
@@ -425,7 +435,23 @@ hr{
 	  height: 35px;
 	  width: 100px;
 	  cursor: pointer;
+	
 
+}
+
+.login_btns{
+	display:flex;
+	flex-direction: rows;
+	margin-top: 40px;
+}
+
+.login_input input{
+	width: 100%;
+  	height: 30px;
+}
+
+.login_register{
+	text-align:center;
 }
 
 #forgot_pass{
@@ -438,5 +464,11 @@ hr{
 	text-decoration: none;
 	color: white;
 	
+}
+
+/*-------------register-----------*/
+
+.justify-content-center{
+	text-align:center;
 }
 
