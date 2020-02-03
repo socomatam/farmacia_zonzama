@@ -1,56 +1,170 @@
+<!DOCTYPE html>
 
+<html lang="es">
 
-@extends('layouts.app') 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<title>Farmacia Zonzamas</title>
 
-@section('selector')
-<div class="top">
-		<div>
-			<span>Productos cosmética</span>
-			<span></span>
-			<span>Ordenar por</span>
-			<form>
-				<select class="order_products">
-					<option>Precio</option>
-					<option value="1">Mayor precio</option>
-					<option value="2">Menor precio</option>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/app.css', true) }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/variable_web_content.css', true) }}">
+	<script src="https://kit.fontawesome.com/63246e723f.js" crossorigin="anonymous"></script>
+	<script src="{{ asset('/assets/js/app.js',true)}}"></script>
+	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
+
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<?php 
+		session_start();
+		if(!isset($_SESSION["lang"])){
+			$_SESSION["lang"]="espanol";
+			echo "hola";
+		}
+	?>
+	<div class="container">
+		<div class="cabecera">
+			<!--<img src="img/banner.png">-->
+			<form class="send" action="#" method="GET">
+				<select name="selected_lang">
+					<option>Idioma</option>
+					<option value="espanol">Español</option>
+					<option value="deutsch">Deutsch</option>
+					<option value="english">English</option>
 				</select>
 			</form>
 		</div>
-	</div>
-@endsection
-@section('content')
-<div class="section">
 
+		<?php
 	
+					if(isset($_GET['selected_lang'])){
+						$lang = $_GET['selected_lang'];
+					
+						if($lang == "espanol"){
+							$_SESSION["lang"]=$lang;
 
-	<div class="prueba">
-		<div class="filter">
-			<div>11111111</div>
-		</div>
+						}else if($lang == "deutsch"){
+							$_SESSION["lang"]=$lang;
+						}else if($lang == "english"){
+							$_SESSION["lang"]=$lang;
+						}
+				
+						echo $_SESSION["lang"];
 
-		<div class="items">
+					}else{
+						echo "No va";
+					}
+						
 
-			@foreach($products as $p)
-			<div>
-				<a href="{{url('/item')}}/{{$p->id}}">
-					<img src="data:image/png;base64,{{ chunk_split(base64_encode($p->imagen)) }}">
+				?>
+
+			<div class="barra_menu">
+				<a href="">
+					<i class="fas fa-bars"></i>
 				</a>
-				<a href="https://developer.mozilla.org">
-					<p>{{$p->nombre}}</p>
+				<a id="inicio" href="{{ url('/') }}">
+					<i class="fas fa-home"></i>
+					<span>Inicio</span>
 				</a>
-				<p>{{$p->precio}} €</p>
+
+				<a id="productos" href="{{ url('/products') }}">
+					<i class="fas fa-tags"></i>
+					<span>Productos</span>
+				</a>
+				<a id="materias" href="{{ url('/rawmaterials') }}">
+					<i class="fas fa-truck"></i>
+					<span>Materias Primas</span>
+				</a>
+				<a id="como" href="{{ url('/howwedo') }}">
+					<i class="fas fa-flask"></i>
+					<span>¿Cómo lo hacemos?</span>
+				</a>
+				<a class="ct_carrito">
+					<span></span>
+				</a>
+				<a class="carrito" href="">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
+
 			</div>
-			@endforeach
 
-		</div>
+			<div class="web_content">
+				<div class="top">
+					<div>
+						<span>Productos cosmética</span>
+						<span></span>
+						<span>Ordenar por</span>
+						<form>
+							<select class="order_products">
+								<option>Precio</option>
+								<option value="1">Mayor precio</option>
+								<option value="2">Menor precio</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="section">
+
+					<div class="prueba">
+						<div class="filter">
+							<div>11111111</div>
+						</div>
+
+						<div class="items">
+
+							@foreach($products as $p)
+							<div>
+								<a href="{{url('/item')}}/{{$p->id}}">
+									<img src="data:image/png;base64,{{ chunk_split(base64_encode($p->imagen)) }}">
+								</a>
+								<a href="https://developer.mozilla.org">
+									<p>{{$p->nombre}}</p>
+								</a>
+								<p>{{$p->precio}} €</p>
+							</div>
+							@endforeach
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--end web_content-->
+
+			<div class="pie_pagina">
+				<a id="quien" href="{{ url('/whoweare') }}">
+					<i class="fas fa-question-circle"></i>
+					<span>¿Quiénes somos?</span>
+				</a> |
+				<a id="colaboradores" href="{{ url('/collaborators') }}">
+					<i class="fas fa-users"></i>
+					<span>Colaboradores</span>
+				</a> |
+				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
+					<i class="fas fa-user-graduate"></i>
+					<span>Proyecto CEZ</span>
+				</a>
+				<a id="contacto" href="{{ url('/contact') }}">
+					<i class="fas fa-phone-alt"></i>
+					<span>Contacto</span>
+				</a>
+			</div>
 	</div>
+</body>
 
-</div>
+</html>
 
 <style>
 	#productos {
 		color: white;
 	}
 </style>
-
-@endsection

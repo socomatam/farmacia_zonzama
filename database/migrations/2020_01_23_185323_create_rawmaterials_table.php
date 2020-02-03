@@ -15,13 +15,17 @@ class CreateRawmaterialsTable extends Migration
     {
         Schema::create('rawmaterials', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('nombre');
-			$table->LongText('descripcion');
-			//$table->binary('imagen');
+			$table->string('nombre_es');
+			$table->string('nombre_en');
+			$table->string('nombre_de');
+			$table->LongText('descripcion_es');
+			$table->LongText('descripcion_en');
+			$table->LongText('descripcion_de');
+			$table->string('imagen');
             $table->timestamps();
         });
 		
-		DB::statement("ALTER TABLE rawmaterials ADD imagen LONGBLOB");
+		
     }
 
     /**

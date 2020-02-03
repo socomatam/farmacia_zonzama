@@ -16,12 +16,14 @@ class CreateCollaboratorsTable extends Migration
         Schema::create('collaborators', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('nombre');
-			$table->LongText('descripcion');
-			//$table->binary('logo');
+			$table->LongText('descripcion_es');
+			$table->LongText('descripcion_en');
+			$table->LongText('descripcion_de');
+			$table->string('logo');
             $table->timestamps();
         });
 		
-		DB::statement("ALTER TABLE collaborators ADD logo LONGBLOB");
+		//DB::statement("ALTER TABLE collaborators ADD logo LONGBLOB");
     }
 
     /**

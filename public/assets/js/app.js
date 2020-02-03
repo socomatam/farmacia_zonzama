@@ -1,9 +1,15 @@
 $(document).ready(function() {
 	
 	//actual lenguge selected
-	
-	
 	setLenguge();
+	$('.send select').change(function() {
+				//var value = $('.send select option:selected').val();
+				//alert(value);
+				$('.send').submit();
+	});
+	
+	
+	
 	
 	function setLenguge(){
 		var lenguage = sessionStorage.getItem('lenguage');

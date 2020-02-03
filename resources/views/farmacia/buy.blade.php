@@ -15,6 +15,13 @@
 	</head>
 
 	<body>
+		<?php 
+		session_start();
+		if(!isset($_SESSION["lang"])){
+			$_SESSION["lang"]="espanol";
+			echo "hola";
+		}
+	?>
 		<div class="container">
 			<div class="cabecera">
 				<!--<img src="img/banner.png">-->
