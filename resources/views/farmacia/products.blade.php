@@ -16,12 +16,14 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	
+	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 
 </head>
 
 <body>
 
-<?php 
+	<?php 
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
@@ -55,10 +57,10 @@
 							$_SESSION["lang"]=$lang;
 						}
 				
-						echo $_SESSION["lang"];
+				
 
 					}else{
-						echo "No va";
+						
 					}
 						
 
@@ -122,10 +124,17 @@
 							@foreach($products as $p)
 							<div>
 								<a href="{{url('/item')}}/{{$p->id}}">
-									<img src="data:image/png;base64,{{ chunk_split(base64_encode($p->imagen)) }}">
+									<img src="{{asset('/assets/img/products/'.$p->imagen , true) }}">
 								</a>
 								<a href="https://developer.mozilla.org">
-									<p>{{$p->nombre}}</p>
+
+									@if($_SESSION["lang"] == "espanol")
+										<p>{{$p->nombre_es}}</p>
+									@elseif($_SESSION["lang"] == "english")
+										<p>{{$p->nombre_en}}</p>
+									@elseif($_SESSION["lang"] == "deutsch")
+										<p>{{$p->nombre_de}}</p>
+									@endif							
 								</a>
 								<p>{{$p->precio}} €</p>
 							</div>

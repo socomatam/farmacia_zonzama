@@ -15,6 +15,8 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	
+	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 
 </head>
 

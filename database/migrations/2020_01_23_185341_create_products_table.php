@@ -31,7 +31,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
         });
 		
-		DB::statement("ALTER TABLE products ADD imagen LONGBLOB");
+		//DB::statement("ALTER TABLE products ADD imagen LONGBLOB");
     }
 
     /**

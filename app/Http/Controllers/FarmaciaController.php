@@ -92,7 +92,7 @@ class FarmaciaController extends Controller{
      */
     public function index(){
 		$images = Slider::all();
-		$products = Product::all();
+		$products = Product::all()->take(4);
         return view('welcome', compact('images', 'products'));
     }//end index
 

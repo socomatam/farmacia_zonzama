@@ -15,6 +15,7 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 
 </head>
 
@@ -23,9 +24,9 @@
 	<?php 
 		session_start();
 		if(!isset($_SESSION["lang"])){
-			$_SESSION["lang"]="espanol";
-			echo "hola";
-		}
+			$_SESSION["lang"]="espanol";	
+		}//end if
+	
 	?>
 
 	<div class="container">
@@ -42,7 +43,6 @@
 		</div>
 
 		<?php
-	
 					if(isset($_GET['selected_lang'])){
 						$lang = $_GET['selected_lang'];
 					
@@ -54,11 +54,6 @@
 						}else if($lang == "english"){
 							$_SESSION["lang"]=$lang;
 						}
-				
-				
-
-					}else{
-						echo "No va";
 					}
 						
 
@@ -122,24 +117,28 @@
 				<div class="image_galery">
 					
 					
-					<?php
+				
 					
-					
-					?>
-					
-					<div>
+					@foreach($products as $p)
 						<div>
+							<div>
+								<img src="{{asset('/assets/img/products/'.$p->imagen , true) }}">
+							</div>
 
-							<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}">
-
+							<div>
+								@if($_SESSION["lang"] == "espanol")				
+									<p>{{$p->descripcion_es}} </p>
+								@elseif($_SESSION["lang"] == "english")
+									<p>{{$p->descripcion_en}} </p>
+								@elseif($_SESSION["lang"] == "deutsch")
+									<p>{{$p->descripcion_de}} </p>
+								@endif
+								
+							</div>
 						</div>
+					@endforeach
 
-						<div>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-							</p>
-						</div>
-					</div>
+
 
 				</div>
 			</div>
