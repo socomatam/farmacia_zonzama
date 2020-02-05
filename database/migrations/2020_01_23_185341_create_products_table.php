@@ -14,15 +14,20 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
-			$table->string('nombre');
-			$table->LongText('descripcion');
+            $table->increments('id');
+			$table->string('nombre_es');
+			$table->string('nombre_en');
+			$table->string('nombre_de');
+			$table->LongText('descripcion_es');
+			$table->LongText('descripcion_en');
+			$table->LongText('descripcion_de');
 			$table->double('precio', 8, 2);
-			$table->binary('miniatura_1');
-			$table->binary('miniatura_2');
-			$table->binary('miniatura_3');
-			$table->binary('miniatura_4');
-			$table->binary('miniatura_5');
+			$table->string('imagen');
+			$table->string('miniatura_1');
+			$table->string('miniatura_2');
+			$table->string('miniatura_3');
+			$table->string('miniatura_4');
+			$table->string('miniatura_5');
             $table->timestamps();
         });
 		

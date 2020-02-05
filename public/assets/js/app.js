@@ -3,10 +3,9 @@ $(document).ready(function() {
 	//actual lenguge selected
 	setLenguge();
 	$('.send select').change(function() {
-				//var value = $('.send select option:selected').val();
-				//alert(value);
+				
 				$('.send').submit();
-	});
+	});//end submit
 	
 	
 	
@@ -115,7 +114,6 @@ $(document).ready(function() {
 						email: email,
 						contact: contact,
 						mensaje: mensaje,
-						
 					},
 			
 			success: function(){

@@ -20,11 +20,13 @@
 
 <body>
 
-	<?php
-	
-		//session_start();
-		//$_SESSION["lang"]="espanol";
-?>
+	<?php 
+		session_start();
+		if(!isset($_SESSION["lang"])){
+			$_SESSION["lang"]="espanol";
+			echo "hola";
+		}
+	?>
 
 	<div class="container">
 		<div class="cabecera">
@@ -53,7 +55,7 @@
 							$_SESSION["lang"]=$lang;
 						}
 				
-						echo $_SESSION["lang"];
+				
 
 					}else{
 						echo "No va";
@@ -94,83 +96,55 @@
 
 			<div class="web_content">
 
-<div class="slideshow-container">
+				<div class="slideshow-container">
 
-	@foreach($images as $img)
-	<div class="mySlides fade">
-		<div class="numbertext"></div>
-		<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}" style="width:100%">
+					@foreach($images as $img)
+					<div class="mySlides fade">
+						<div class="numbertext"></div>
 
-		<div class="text">Caption Text</div>
-	</div>
-	@endforeach
+						<img src="{{asset('/assets/img/slider_home/'.$img->slider_home , true) }}" style="width:100%">
 
-	<a class="prev">&#10094;</a>
-	<a class="next">&#10095;</a>
+						<div class="text"></div>
+					</div>
+					@endforeach
 
-</div>
-<br>
-<div style="text-align:center">
-	@foreach($images as $img)
-	<span class="dot" onclick="currentSlide(1)"></span>
-	@endforeach
-</div>
+					<a class="prev">&#10094;</a>
+					<a class="next">&#10095;</a>
 
-<div class="image_galery">
-	<div>
-		<div>
+				</div>
+				<br>
+				<div style="text-align:center">
+					@foreach($images as $img)
+					<span class="dot" onclick="currentSlide(1)"></span>
+					@endforeach
+				</div>
 
-			<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}">
+				<div class="image_galery">
+					
+					
+					<?php
+					
+					
+					?>
+					
+					<div>
+						<div>
 
-		</div>
+							<img src="data:image/png;base64,{{ chunk_split(base64_encode($img->slider_home)) }}">
 
-		<div>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-			</p>
-		</div>
-	</div>
+						</div>
 
-	<div>
-		<div>
-			<img src="{{ asset('/assets/img/blanco.PNG',true)}}">
-		</div>
+						<div>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+							</p>
+						</div>
+					</div>
 
-		<div>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-			</p>
-		</div>
-	</div>
+				</div>
+			</div>
 
-	<div>
-		<div>
-			<img src="{{ asset('/assets/img/blanco.PNG',true)}}">
-		</div>
-
-		<div>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-			</p>
-		</div>
-	</div>
-
-	<div>
-		<div>
-			<img src="{{ asset('/assets/img/blanco.PNG',true)}}">
-		</div>
-
-		<div>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-			</p>
-		</div>
-	</div>
-
-</div>
-		</div>
-				
-<div class="pie_pagina">
+			<div class="pie_pagina">
 				<a id="quien" href="{{ url('/whoweare') }}">
 					<i class="fas fa-question-circle"></i>
 					<span>¿Quiénes somos?</span>
@@ -198,8 +172,6 @@
 		color: white;
 	}
 </style>
-
-
 
 <!--
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">

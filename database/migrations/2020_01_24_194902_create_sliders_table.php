@@ -16,11 +16,9 @@ class CreateSlidersTable extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+			$table->string('slider_home');
         });
-		
-		DB::statement("ALTER TABLE sliders ADD slider_home LONGBLOB");
-		DB::statement("ALTER TABLE sliders ADD slider_quienes_somos LONGBLOB");
-		DB::statement("ALTER TABLE sliders ADD slider_proyecto_cez LONGBLOB");
+
     }
 
     /**

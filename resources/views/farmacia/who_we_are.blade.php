@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<?php 
+	<?php 
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
@@ -41,9 +41,6 @@
 		</div>
 
 		<?php
-				
-		
-					
 					if(isset($_GET['selected_lang'])){
 						//$lang = $_GET['selected_lang'];
 					
@@ -55,23 +52,10 @@
 						}else if($lang == "english"){
 							$_SESSION["lang"]=$lang;
 						}
-				
-						
-
 					}else{
 					
 						
-					}
-						
-					
-				?>
-		
-				<?php
-					
-					if(isset( $_SESSION["lang"])){
-						echo $_SESSION["lang"] . "sdsad";
-					}
-					
+					}					
 				?>
 
 			<div class="barra_menu">

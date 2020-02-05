@@ -119,17 +119,17 @@
 
 					<div>
 						<h2>Contáctenos</h2>
-							<form class="form_contact">
+						<form class="form_contact">
 
-								<input type="text" name="name" placeholder="Nombre">
-								<br>
-								<input type="text" name="name" placeholder="Email">
-								<br>
-								<textarea rows="10" placeholder=""></textarea>
-								<br>
-								<br>
-								<input type="submit" name="send" value="Enviar">
-							</form>
+							<input type="text" name="name" placeholder="Nombre">
+							<br>
+							<input type="text" name="name" placeholder="Email">
+							<br>
+							<textarea rows="10" placeholder=""></textarea>
+							<br>
+							<br>
+							<input type="submit" name="send" value="Enviar">
+						</form>
 					</div>
 				</div>
 
