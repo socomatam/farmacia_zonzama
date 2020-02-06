@@ -99,12 +99,12 @@
 			<div class="web_content">
 				<div class="top">
 					<div>
-						<span>Productos cosmética</span>
+						<span class="lang_product_pc">Productos cosmética</span>
 						<span></span>
-						<span>Ordenar por</span>
+						<span class="lang_product_op">Ordenar por</span>
 						<form>
 							<select class="order_products">
-								<option>Precio</option>
+								<option class="lang_product_p">Precio</option>
 								<option value="1">Mayor precio</option>
 								<option value="2">Menor precio</option>
 							</select>

@@ -11,6 +11,7 @@
 		<script src="https://kit.fontawesome.com/63246e723f.js" crossorigin="anonymous"></script>
 		<script src="{{ asset('/assets/js/app.js',true)}}"></script>
 		<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
+		
 		<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 		
 	</head>
