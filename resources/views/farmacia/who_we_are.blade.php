@@ -25,7 +25,7 @@
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
-			echo "hola";
+			
 		}
 	?>
 
@@ -44,7 +44,7 @@
 
 		<?php
 					if(isset($_GET['selected_lang'])){
-						//$lang = $_GET['selected_lang'];
+						$lang = $_GET['selected_lang'];
 					
 						if($lang == "espanol"){
 							$_SESSION["lang"]=$lang;

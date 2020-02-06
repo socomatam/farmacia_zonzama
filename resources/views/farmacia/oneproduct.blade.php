@@ -121,7 +121,7 @@
 							<button class="btn_carrito">
 								<i class="fas fa-cart-plus"></i> Añadir al carro</button>
 							<button>
-								<a href="{{url('/buy')}}">Comprar ahora</a>
+								<a class="btn_shop" href="{{url('/buy')}}">Comprar ahora</a>
 							</button>
 						</div>
 
@@ -130,18 +130,18 @@
 						@if($_SESSION["lang"] == "espanol")
 							<h3>{{$product->nombre_es}} </h3>
 							<h2>{{$product->precio}} €</h2>
-							<h3>Información del producto</h3>
+							<h3 class="lang_contact_inf">Información del producto</h3>
 							<div>{{$product->descripcion_es}}</div>
 						@elseif($_SESSION["lang"] == "english")
 							<h3>{{$product->nombre_en}} </h3>
 							<h2>{{$product->precio}} €</h2>
-							<h3>Información del producto</h3>
+							<h3 class="lang_contact_inf">Información del producto</h3>
 							<div>{{$product->descripcion_en}}</div>
 
 						@elseif($_SESSION["lang"] == "deutsch")
 							<h3>{{$product->nombre_de}} </h3>
 							<h2>{{$product->precio}} €</h2>
-							<h3>Información del producto</h3>
+							<h3 class="lang_contact_inf">Información del producto</h3>
 							<div>{{$product->descripcion_de}}</div>
 
 						@endif
@@ -149,8 +149,16 @@
 					</div>
 				</div>
 
-				<div class="comentarios">
-
+				<div class="one_products_comments">
+					<p class="one_product_com"><b>Opiniones de los compradores</b></p>
+					<div>
+						<p>
+							User
+						</p>
+						<p>
+							Comentario
+						</p>
+					</div>
 				</div>
 
 			</div>
@@ -169,7 +177,7 @@
 				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
 					<i class="fas fa-user-graduate"></i>
 					<span>Proyecto CEZ</span>
-				</a>
+				</a> |
 				<a id="contacto" href="{{ url('/contact') }}">
 					<i class="fas fa-phone-alt"></i>
 					<span>Contacto</span>

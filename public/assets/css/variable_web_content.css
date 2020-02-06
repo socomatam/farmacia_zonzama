@@ -342,6 +342,12 @@ hr{
 	
 	grid-column-gap: 1%;
 	justify-content: center;
+	color: grey;
+}
+
+.one_products_comments{
+	margin-top: 70px;
+	color:gray;
 }
 
 .one_product div:nth-child(2) > div:nth-child(1){ 	

@@ -27,7 +27,6 @@
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
-			echo "hola";
 		}
 	?>
 	<div class="container">
@@ -105,8 +104,8 @@
 						<form>
 							<select class="order_products">
 								<option class="lang_product_p">Precio</option>
-								<option value="1">Mayor precio</option>
-								<option value="2">Menor precio</option>
+								<option Class="lang_product_price1" value="1">Mayor precio</option>
+								<option class="lang_product_price2" value="2">Menor precio</option>
 							</select>
 						</form>
 					</div>
