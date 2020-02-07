@@ -1,11 +1,5 @@
 $(document).ready(function() {
 	
-
-	
-	
-	
-	
-	
 	$('.borrar').click(function() {
 		if (localStorage.clickcount) {
 			localStorage.clickcount = 0;
@@ -26,20 +20,33 @@ $(document).ready(function() {
 		$('.ct_carrito span').text(localStorage.clickcount);
 	}); //end click
 	
+	
 	//order all products by price
 	$('.order_products').change(function(){
 		var value = $('.order_products option:selected').val();
-		
 		$.ajax({
 			url: "/orderproducts/"+value,
 			success: function(response) {
-				$('.section').html(response);
+				var result = $('.section').append(response).find('.section').html();	
+				$('.section').html(result);
 			} //fin succces
 		}); //end ajax
 	});//end click
 	
-	//Set layout lenguage
 	
+	$('.filter input').change(function(){
+		var value = $('.filter input').val();
+		
+		$.ajax({
+			url: "/orderproductsbyprice/"+value,
+			success: function(response) {
+				console.log(response);
+				var result = $('.section').append(response).find('.section').html();	
+				$('.section').html(result);
+			} //fin succces
+		}); //end ajax
+		
+	});//end click
 	
 
 	//Send an email
@@ -68,67 +75,33 @@ $(document).ready(function() {
 	});//end click
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	var slideIndex = 1;
-	showSlides(slideIndex);
-
-
-	
-	$(".next").click(function(){
-		showSlides(slideIndex += 1);
-	});//end next
-
-	$(".prev").click(function(){
-		showSlides(slideIndex -= 1);
-	});//end prev
-	
-
-	var sliderTimer = setInterval(autoSlider, 2000);
-
-	function autoSlider(){
-		showSlides(slideIndex += 1);
-	}//end auto slider
-
-	function showSlides(n) {
-		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
-		if (n > slides.length) {
-		  	    slideIndex = 1
-		}//end if 
-
-		if (n < 1) {
-			slideIndex = slides.length
-		}// end if
+	//
+	$('.btn_carrito').click(function(){
+	 	var value = $('.id_product').text();
+		alert(value);
 		
-		for (i = 0; i < slides.length; i++) {
-		    slides[i].style.display = "none";  
-		}// end for
-		
-		for (i = 0; i < dots.length; i++) {
-		    dots[i].className = dots[i].className.replace(" active", "");
-		}//end for
-		    slides[slideIndex-1].style.display = "block";  
-		    dots[slideIndex-1].className += " active";
-	}//end showSlide
-	*/
+		$.ajax({
+			url: "/addtocar/"+value,
+			success: function(response) {
+				
+				
+			} //fin succces
+		}); //end ajax
+	});//end click
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }); //end jquery

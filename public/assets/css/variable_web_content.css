@@ -260,11 +260,12 @@ hr{
 }
 
 
-/*-------products---------*/
+/*---------- PRODUCTS------*/
 
-.products div{
-  border: 0.5px solid grey;
-  color: gray;
+.product_container{
+	
+	display: grid;
+	grid-template-columns:30% 70%;
 }
 
 .items div a{
@@ -285,15 +286,20 @@ hr{
 }
 
 .filter{
-  width: 25%;
+  color: gray;
   border-right: 1px gray solid;
+	padding-left: 30px;
+}
+
+.filter ul li{
+	list-style: none;
 }
 
 
 .items{
-  width: 75%; 
+  
   display: grid;
-  grid-template-columns: 23% 23% 23%;
+  grid-template-columns: 30% 30% 30%;
   justify-content: space-around;
   grid-row-gap: 30px;
   margin-top: 20px;

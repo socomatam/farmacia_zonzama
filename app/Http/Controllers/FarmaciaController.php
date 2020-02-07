@@ -8,6 +8,7 @@ use App\Rawmaterial;
 use App\Tutorial;
 use App\Slider;
 use App\Product;
+use App\Carrito;
 
 
 class FarmaciaController extends Controller{
@@ -17,6 +18,39 @@ class FarmaciaController extends Controller{
 	public function __construct($contadorCarrito = 55){
 		$this->contadorCarrito = $contadorCarrito; 
 	}
+	
+	public function addToCar($value){
+		
+		$products = Product::where('id', '=', $value)->get();
+		
+		$a = [];
+		
+		foreach($products as $p){
+			$a=$p;
+		}//
+		
+		$carro = new Carrito();
+		$carro->nombre_es = $a->nombre_es;
+		$carro->nombre_en = $a->nombre_en;
+		$carro->nombre_de = $a->nombre_de;
+		$carro->id_producto = $a->id;
+		$carro->precio = $a->precio;
+		$carro->imagen = $a->imagen;
+		$carro->save();	
+	}//fin carrito
+	
+	public function orderProductsByPrice($value){
+		
+		
+	
+	
+//$user = DB::table('users')->where('name', 'John')->first();
+
+
+		$products = Product::where('precio', '<', $value)->get();
+		return view('farmacia.products', compact('products'));
+
+	}//end order by price
 	
 	
 	public function email(Request $request){
@@ -32,12 +66,13 @@ class FarmaciaController extends Controller{
 		
 		if($value == 1){
 			$products = Product::orderBy('precio', 'DESC')->get();
-			return view('farmacia.products', compact('products'))->renderSections()['content'];
+			
+			return view('farmacia.products', compact('products'));
 		}//end if
 		
 		if ($value = 2){
 			$products = Product::orderBy('precio', 'ASC')->get();
-			return view('farmacia.products', compact('products'))->renderSections()['content'];
+			return view('farmacia.products', compact('products'));
 		}//end if
 		
 		

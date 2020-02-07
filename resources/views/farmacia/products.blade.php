@@ -16,7 +16,7 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	
+
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 
 </head>
@@ -96,6 +96,7 @@
 			</div>
 
 			<div class="web_content">
+
 				<div class="top">
 					<div>
 						<span class="lang_product_pc">Productos cosmética</span>
@@ -111,35 +112,52 @@
 					</div>
 				</div>
 
-				<div class="section">
+				<div class="product_container">
 
-					<div class="prueba">
-						<div class="filter">
-							<div>11111111</div>
-						</div>
+					<div class="filter">
+						<h3>Filtros</h3>
+						<h4><b>Categorías</b></h4>
+						<h5>Categoría 1</h5>
+						<h5>Categoría 2</h5>
+						<h5>Categoría 3</h5>
+						<h5>Categoría 4</h5>
+					
+						<br>
+						<br>
+						<label>Precio</label><br>
+						<input type="range" name="range_price" min="0" max="1000" step="10">
 
-						<div class="items">
+					</div>
 
-							@foreach($products as $p)
-							<div>
-								<a href="{{url('/item')}}/{{$p->id}}">
-									<img src="{{asset('/assets/img/products/'.$p->imagen , true) }}">
-								</a>
-								<a href="https://developer.mozilla.org">
+					<div class="section">
 
-									@if($_SESSION["lang"] == "espanol")
+						<div class="prueba">
+
+							<div class="items">
+
+								@foreach($products as $p)
+								<div>
+									<a href="{{url('/item')}}/{{$p->id}}">
+										<img src="{{asset('/assets/img/products/'.$p->imagen , true) }}">
+									</a>
+									<a href="https://developer.mozilla.org">
+
+										@if($_SESSION["lang"] == "espanol")
 										<p>{{$p->nombre_es}}</p>
-									@elseif($_SESSION["lang"] == "english")
+										@elseif($_SESSION["lang"] == "english")
 										<p>{{$p->nombre_en}}</p>
-									@elseif($_SESSION["lang"] == "deutsch")
+										@elseif($_SESSION["lang"] == "deutsch")
 										<p>{{$p->nombre_de}}</p>
-									@endif							
-								</a>
-								<p>{{$p->precio}} €</p>
+										@endif
+									</a>
+									<p>{{$p->precio}} €</p>
+								</div>
+								@endforeach
+
 							</div>
-							@endforeach
 
 						</div>
+
 					</div>
 
 				</div>
@@ -160,7 +178,7 @@
 				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
 					<i class="fas fa-user-graduate"></i>
 					<span>Proyecto CEZ</span>
-				</a>
+				</a> |
 				<a id="contacto" href="{{ url('/contact') }}">
 					<i class="fas fa-phone-alt"></i>
 					<span>Contacto</span>

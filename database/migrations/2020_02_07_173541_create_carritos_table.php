@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateCarritosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
-			$table->string('nombre_es')->nullable();
+        Schema::create('carritos', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('id_producto');
+            $table->string('nombre_es')->nullable();
 			$table->string('nombre_en')->nullable();
 			$table->string('nombre_de')->nullable();
 			$table->LongText('descripcion_es')->nullable();
@@ -28,10 +29,9 @@ class CreateProductsTable extends Migration
 			$table->string('miniatura_3')->nullable();
 			$table->string('miniatura_4')->nullable();
 			$table->string('miniatura_5')->nullable();
+           
             $table->timestamps();
         });
-		
-		//DB::statement("ALTER TABLE products ADD imagen LONGBLOB");
     }
 
     /**
@@ -41,6 +41,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('carritos');
     }
 }

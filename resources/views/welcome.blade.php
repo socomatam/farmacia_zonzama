@@ -23,9 +23,12 @@
 
 	<?php 
 		session_start();
+	//echo $_SESSION["lang"];
 		if(!isset($_SESSION["lang"])){
+			
 			$_SESSION["lang"]="espanol";	
 		}//end if
+	;
 	
 	?>
 

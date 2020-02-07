@@ -131,17 +131,20 @@
 							<h3>{{$product->nombre_es}} </h3>
 							<h2>{{$product->precio}} €</h2>
 							<h3 class="lang_contact_inf">Información del producto</h3>
+							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
 							<div>{{$product->descripcion_es}}</div>
 						@elseif($_SESSION["lang"] == "english")
 							<h3>{{$product->nombre_en}} </h3>
 							<h2>{{$product->precio}} €</h2>
 							<h3 class="lang_contact_inf">Información del producto</h3>
+							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
 							<div>{{$product->descripcion_en}}</div>
 
 						@elseif($_SESSION["lang"] == "deutsch")
 							<h3>{{$product->nombre_de}} </h3>
 							<h2>{{$product->precio}} €</h2>
 							<h3 class="lang_contact_inf">Información del producto</h3>
+							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
 							<div>{{$product->descripcion_de}}</div>
 
 						@endif
