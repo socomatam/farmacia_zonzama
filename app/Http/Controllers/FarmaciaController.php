@@ -37,6 +37,9 @@ class FarmaciaController extends Controller{
 		$carro->precio = $a->precio;
 		$carro->imagen = $a->imagen;
 		$carro->save();	
+		
+		return $a;
+		
 	}//fin carrito
 	
 	public function orderProductsByPrice($value){
