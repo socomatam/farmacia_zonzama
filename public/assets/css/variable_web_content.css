@@ -484,3 +484,38 @@ hr{
 	text-align:center;
 }
 
+/*--------END BUY--------*/
+
+.end_buy div{
+	border: 1px solid grey;
+}
+
+.end_buy{
+	display: grid;
+	grid-template-columns: 60% 35%;
+	grid-column-gap: 1%;
+	justify-content: center;
+	padding-top: 2%;
+	padding-bottom:2%;
+}
+
+.end_buy table{
+	border: 1px solid grey;
+}
+
+.end_buy th{
+	border: 1px solid grey;
+}
+
+.buy_img img{
+	width:50%;
+}
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	/*
 	$('.borrar').click(function() {
 		if (localStorage.clickcount) {
 			localStorage.clickcount = 0;
@@ -18,7 +20,13 @@ $(document).ready(function() {
 
 		$('.ct_carrito span').text(localStorage.clickcount);
 	}); //end click
-
+	*/
+	
+	
+	$('.carrito').click(function(){
+		//$('.carrito').submit();
+	});//end click
+	
 	//order all products by price
 	$('.order_products').change(function() {
 		var value = $('.order_products option:selected').val();

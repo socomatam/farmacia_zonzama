@@ -38,7 +38,34 @@
 			
 
 			<div class="web_content">
-				<buttom> <a href="">Finalizar compra</a></buttom>
+				<div class="end_buy">
+					<div>
+						<table>
+							<tr>
+								<th>Artículo</th>
+								
+								<th>Precio</th>
+								<th>Unidades</th>
+								<th>Total</th>
+							</tr>
+							@foreach($carrito as $c)
+							<tr>
+								<td>{{$c->nombre_es}}</td>
+								
+								<td class="buy_img"><img src="{{asset('/assets/img/products/'.$c->imagen , true) }}"></td>
+								<td>{{$c->precio}}</td>
+								<td>{{$c->precio}}</td>
+								<td>{{$c->precio}}</td>
+							</tr>
+								
+							
+							@endforeach
+						</table>
+					</div>
+					<div>
+						s
+					</div>
+				</div>
 			</div>
 
 

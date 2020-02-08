@@ -43,7 +43,10 @@ Route::get('/item/{id}', 'FarmaciaController@mostratProducto' );
 Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
 Route::get('/orderproductsbyprice/{value}', 'FarmaciaController@orderProductsByPrice' );
 Route::get('/addtocar/{value}', 'FarmaciaController@addToCar' );
-Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
+Route::get('/buy', 'FarmaciaController@muestraCarro' )->middleware('auth');
+
+
+//Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

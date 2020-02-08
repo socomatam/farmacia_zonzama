@@ -86,7 +86,7 @@
 				<a class="ct_carrito">
 					<span></span>
 				</a>
-				<a class="carrito" href="">
+				<a class="carrito" href="{{url('/buy')}}">
 					<i class="fas fa-shopping-cart"></i>
 				</a>
 

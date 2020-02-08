@@ -19,10 +19,15 @@ class FarmaciaController extends Controller{
 		$this->contadorCarrito = $contadorCarrito; 
 	}
 	
-	public function addToCar($value){
+	public function muestraCarro(){
+		$carrito = Carrito::all();
 		
+		return view('farmacia.buy', compact('carrito'));
+	}//end muestra carro
+	
+	
+	public function addToCar($value){	
 		$products = Product::where('id', '=', $value)->get();
-		
 		$a = [];
 		
 		foreach($products as $p){
