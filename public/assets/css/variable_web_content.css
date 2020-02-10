@@ -492,7 +492,7 @@ hr{
 
 .end_buy{
 	display: grid;
-	grid-template-columns: 60% 35%;
+	grid-template-columns: 75% 20%;
 	grid-column-gap: 1%;
 	justify-content: center;
 	padding-top: 2%;
@@ -500,15 +500,37 @@ hr{
 }
 
 .end_buy table{
-	border: 1px solid grey;
+
 }
 
 .end_buy th{
-	border: 1px solid grey;
+	
+	background: gray;
 }
 
 .buy_img img{
-	width:50%;
+	width:100%;
+}
+
+.buy_img {
+	width:15%;
+	justify-content: center;
+}
+
+table td{
+	text-align:center;
+}
+
+.total_price{
+	float:right;
+}
+
+.fa-plus{
+	margin-right:10px;
+}
+
+.fa-minus{
+	margin-left:10px;
 }
 
 

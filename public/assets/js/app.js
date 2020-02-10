@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	
+	
 	/*
 	$('.borrar').click(function() {
 		if (localStorage.clickcount) {

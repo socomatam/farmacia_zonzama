@@ -100,7 +100,7 @@
 					<div class="mySlides fade">
 						<div class="numbertext"></div>
 
-						<img src="{{asset('/assets/img/slider_home/'.$img->slider_home , true) }}" style="width:100%">
+						<img src="{{asset('/assets/img/slider/'.$img->slider_home , true) }}" style="width:100%">
 
 						<div class="text"></div>
 					</div>
@@ -130,11 +130,11 @@
 
 							<div>
 								@if($_SESSION["lang"] == "espanol")				
-									<p>{{$p->descripcion_es}} </p>
+									<p>{{$p->nombre_es}} </p>
 								@elseif($_SESSION["lang"] == "english")
-									<p>{{$p->descripcion_en}} </p>
+									<p>{{$p->nombre_en}} </p>
 								@elseif($_SESSION["lang"] == "deutsch")
-									<p>{{$p->descripcion_de}} </p>
+									<p>{{$p->nombre_de}} </p>
 								@endif
 								
 							</div>
@@ -158,7 +158,7 @@
 				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
 					<i class="fas fa-user-graduate"></i>
 					<span>Proyecto CEZ</span>
-				</a>
+				</a> |
 				<a id="contacto" href="{{ url('/contact') }}">
 					<i class="fas fa-phone-alt"></i>
 					<span>Contacto</span>

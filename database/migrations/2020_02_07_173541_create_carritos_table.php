@@ -23,6 +23,7 @@ class CreateCarritosTable extends Migration
 			$table->LongText('descripcion_en')->nullable();
 			$table->LongText('descripcion_de')->nullable();
 			$table->double('precio', 8, 2)->nullable();
+			//$table->integer('unidades')->nullable();
 			$table->string('imagen')->nullable();
 			$table->string('miniatura_1')->nullable();
 			$table->string('miniatura_2')->nullable();

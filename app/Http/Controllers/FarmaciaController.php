@@ -19,10 +19,36 @@ class FarmaciaController extends Controller{
 		$this->contadorCarrito = $contadorCarrito; 
 	}
 	
+	public function deleteCar(){
+		 $r =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen');
+		$r->delete();
+		$grupo = [];
+		$total = 0;
+		$aux = [];
+		return view('farmacia.buy', compact('grupo', 'total', 'aux'));
+	}//end delete car
+	
 	public function muestraCarro(){
+		$total = Carrito::sum('precio');
+		$grupo = Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
+		//dd($ca
 		$carrito = Carrito::all();
 		
-		return view('farmacia.buy', compact('carrito'));
+		$aux = [];
+		$i= 0;
+		foreach($grupo as $p){
+			foreach($carrito as $c){
+
+				if($p->id_producto == $c->id_producto){
+					$i++;
+				}//fin if
+
+			}//fin for each
+			$aux[] = $i;
+			$i=0;
+		}//fin 
+	
+		return view('farmacia.buy', compact('grupo', 'total', 'aux'));
 	}//end muestra carro
 	
 	

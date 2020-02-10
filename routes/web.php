@@ -12,15 +12,38 @@
 */
 
 Route::get('/pruebas', function () {
-    $products = App\Product::where('id', '=', 1)->get();
+    //$products = App\Product::where('id', '=', 1)->get();
 		
-		$a = [];
+		//$a = [];
 		
-		foreach($products as $p){
-			$a=$p;
-		}
+		//foreach($products as $p){
+			//$a=$p;
+		//}
 		
-		echo $a->nombre_de;
+		//echo $a->nombre_de;
+	$grupo = App\Carrito::selectRaw('id_producto, nombre_es, nombre_de, nombre_en, precio, imagen' )->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
+	$carrito = App\Carrito::all();
+	$primero = App\Carrito::all()->first();
+	$catidad = $primero;
+	
+	
+	$aux = [];
+	$i= 0;
+	foreach($grupo as $p){
+		foreach($carrito as $c){
+
+			if($p->id_producto == $c->id_producto){
+				$i++;
+			}//fin if
+			
+		}//fin for each
+		$aux[] = $i;
+		$i =0;
+	}//fin 
+	
+	
+	
+	
 });
 
 Auth::routes();
@@ -44,6 +67,7 @@ Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
 Route::get('/orderproductsbyprice/{value}', 'FarmaciaController@orderProductsByPrice' );
 Route::get('/addtocar/{value}', 'FarmaciaController@addToCar' );
 Route::get('/buy', 'FarmaciaController@muestraCarro' )->middleware('auth');
+Route::get('/deletecar','FarmaciaController@deleteCar');
 
 
 //Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');
