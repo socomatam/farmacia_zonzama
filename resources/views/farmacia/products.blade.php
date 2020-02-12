@@ -169,7 +169,7 @@
 									<a href="{{url('/item')}}/{{$p->id}}">
 										<img src="{{asset('/assets/img/products/'.$p->imagen , true) }}">
 									</a>
-									<a href="https://developer.mozilla.org">
+									<a href="{{url('/item')}}/{{$p->id}}">
 
 										@if($_SESSION["lang"] == "espanol")
 										<p>{{$p->nombre_es}}</p>

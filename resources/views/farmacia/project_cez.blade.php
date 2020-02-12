@@ -168,7 +168,7 @@
 				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
 					<i class="fas fa-user-graduate"></i>
 					<span>Proyecto CEZ</span>
-				</a>
+				</a> |
 				<a id="contacto" href="{{ url('/contact') }}">
 					<i class="fas fa-phone-alt"></i>
 					<span>Contacto</span>

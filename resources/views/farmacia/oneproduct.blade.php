@@ -16,12 +16,12 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	
+
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
-	
+
 	<!--Librerías toars-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
 </head>
 
@@ -36,7 +36,7 @@
 	?>
 	<div class="container">
 		<div class="cabecera">
-			
+
 			<form class="send" action="#" method="GET">
 				<select name="selected_lang">
 					<option>Idioma</option>
@@ -46,19 +46,14 @@
 				</select>
 			</form>
 			@if(isset(auth()->user()->name))
-				<form class="form_login" action="{{url('/logout')}}" method="POST">
-					<input class="log_out" type="submit" value="Salir">
-				</form>
+			<form class="form_login" action="{{url('/logout')}}" method="POST">
+				<input class="log_out" type="submit" value="Salir">
+			</form>
+			@endisset @if(!isset(auth()->user()->name))
+			<form class="form_login" action="{{url('/login')}}">
+				<input class="log_in" type="submit" value="Entrar">
+			</form>
 			@endisset
-				
-			@if(!isset(auth()->user()->name))
-				<form class="form_login" action="{{url('/login')}}">
-					<input class="log_in"  type="submit" value="Entrar">
-				</form>
-			@endisset
-				
-			
-			
 
 		</div>
 
@@ -106,15 +101,13 @@
 					<span></span>
 				</a>
 				@if(isset(auth()->user()->id))
-					<a class="carrito" href="{{url('/buy')}}/{{auth()->user()->id}}">
-						<i class="fas fa-shopping-cart"></i>
-					</a>
-				@endisset
-				
-				@if(!isset(auth()->user()->id))
-					<a class="carrito" href="{{url('/buy')}}/0">
-						<i class="fas fa-shopping-cart"></i>
-					</a>
+				<a class="carrito" href="{{url('/buy')}}/{{auth()->user()->id}}">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
+				@endisset @if(!isset(auth()->user()->id))
+				<a class="carrito" href="{{url('/buy')}}/0">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
 				@endisset
 
 			</div>
@@ -155,24 +148,30 @@
 					</div>
 					<div>
 						@if($_SESSION["lang"] == "espanol")
-							<h3 class="one_name" >{{$product->nombre_es}} </h3>
-						<h2 ><span class="one_price">{{$product->precio}}</span>€</h2>
-							<h3 class="lang_contact_inf">Información del producto</h3>
-							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
-							<div>{{$product->descripcion_es}}</div>
+						<h3 class="one_name">{{$product->nombre_es}} </h3>
+						<h2>
+							<span class="one_price">{{$product->precio}}</span>€</h2>
+						<h3 class="lang_contact_inf">Información del producto</h3>
+						<span>ID producto </span>
+						<span class="id_product">{{$product->id}}</span>
+						<div>{{$product->descripcion_es}}</div>
 						@elseif($_SESSION["lang"] == "english")
-							<h3 class="one_name">{{$product->nombre_en}} </h3>
-							<h2><span class="one_price">{{$product->precio}}</span>€</h2>
-							<h3 class="lang_contact_inf">Información del producto</h3>
-							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
-							<div>{{$product->descripcion_en}}</div>
+						<h3 class="one_name">{{$product->nombre_en}} </h3>
+						<h2>
+							<span class="one_price">{{$product->precio}}</span>€</h2>
+						<h3 class="lang_contact_inf">Información del producto</h3>
+						<span>ID producto </span>
+						<span class="id_product">{{$product->id}}</span>
+						<div>{{$product->descripcion_en}}</div>
 
 						@elseif($_SESSION["lang"] == "deutsch")
-							<h3 class="one_name">{{$product->nombre_de}} </h3>
-							<h2><span class="one_price">{{$product->precio}}</span>€</h2>
-							<h3 class="lang_contact_inf">Información del producto</h3>
-							<span>ID producto </span><span class="id_product">{{$product->id}}</span>
-							<div>{{$product->descripcion_de}}</div>
+						<h3 class="one_name">{{$product->nombre_de}} </h3>
+						<h2>
+							<span class="one_price">{{$product->precio}}</span>€</h2>
+						<h3 class="lang_contact_inf">Información del producto</h3>
+						<span>ID producto </span>
+						<span class="id_product">{{$product->id}}</span>
+						<div>{{$product->descripcion_de}}</div>
 
 						@endif
 
@@ -180,14 +179,21 @@
 				</div>
 
 				<div class="one_products_comments">
-					<p class="one_product_com"><b>Opiniones de los compradores</b></p>
-					<div>
-						<p>
-							User
-						</p>
-						<p>
-							Comentario
-						</p>
+					<p class="one_product_com">
+						<b>Opiniones de los compradores</b>
+					</p>
+					@if(isset(auth()->user()->name))
+					<p class="one_product_com">
+						{{auth()->user()->name}}
+					</p>
+					@endisset @if(!isset(auth()->user()->name))
+					<p class="one_product_com">
+						
+					</p>
+					@endisset
+
+					<div class="coments">
+						<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebuNCFlcILxuGsSGShzVP5ETv1g1oqyXSQSQzxGKhEwhp4HA/viewform?embedded=true" height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
 					</div>
 				</div>
 
