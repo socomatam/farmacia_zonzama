@@ -29,6 +29,10 @@ $(document).ready(function() {
 			$('.btn_shop').text("Buy now");
 			$('.lang_contact_inf').text("Product information");
 			$('.one_product_com').html("<b>Buyers' opinions</b>");
+			$('.log_out').val("Logout");
+			$('.log_in').val("Login");
+			$('.btn_mm').text("Show more");
+			
 		
 			
 	 	}else if(lenguage == 'deutsch'){
@@ -55,6 +59,11 @@ $(document).ready(function() {
 			$('.btn_shop').text("Kaufen Sie jetzt");
 			$('.lang_contact_inf').text("Produktinformationen");
 			$('.one_product_com').html("<b>Käufermeinungen</b>");
+			
+			$('.log_out').val("Ausloggen");
+			$('.log_in').val("Einloggen");
+			
+			$('.btn_mm').text("mehr anzeigen");
 			
 		}else if(lenguage == 'espanol'){
 			/*

@@ -43,13 +43,13 @@
 			</form>
 			@if(isset(auth()->user()->name))
 				<form class="form_login" action="{{url('/logout')}}" method="POST">
-					<input type="submit" value="Salir">
+					<input class="log_out" type="submit" value="Salir">
 				</form>
 			@endisset
 				
 			@if(!isset(auth()->user()->name))
 				<form class="form_login" action="{{url('/login')}}">
-					<input type="submit" value="Entrar">
+					<input class="log_in"  type="submit" value="Entrar">
 				</form>
 			@endisset
 		</div>

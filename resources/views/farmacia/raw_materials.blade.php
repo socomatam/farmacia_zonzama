@@ -43,13 +43,13 @@
 			</form>
 			@if(isset(auth()->user()->name))
 				<form class="form_login" action="{{url('/logout')}}" method="POST">
-					<input type="submit" value="Salir">
+					<input class="log_out" type="submit" value="Salir">
 				</form>
 			@endisset
 				
 			@if(!isset(auth()->user()->name))
 				<form class="form_login" action="{{url('/login')}}">
-					<input type="submit" value="Entrar">
+					<input class="log_in"  type="submit" value="Entrar">
 				</form>
 			@endisset
 		</div>
@@ -138,7 +138,7 @@
 						
 						
 
-						<button>Mostrar mรกs</button>
+						<button class="btn_mm">Mostrar más</button>
 					</div>
 					@else
 					<div>
@@ -152,10 +152,8 @@
 							<h3>{{$raw->nombre_de}}</h3>
 						<p>{{$raw->descripcion_de}} </p>
 						@endif
-						
-						
 
-						<button>Mostrar mรกs</button>
+						<button class="btn_mm">Mostrar más</button>
 					</div>
 					<div>
 						<img src="{{asset('/assets/img/rawmaterials/'.$raw->imagen , true) }}">
@@ -179,7 +177,7 @@
 				<a id="proyecto_cez" href="{{ url('/projectcez') }}">
 					<i class="fas fa-user-graduate"></i>
 					<span>Proyecto CEZ</span>
-				</a>
+				</a> |
 				<a id="contacto" href="{{ url('/contact') }}">
 					<i class="fas fa-phone-alt"></i>
 					<span>Contacto</span>
