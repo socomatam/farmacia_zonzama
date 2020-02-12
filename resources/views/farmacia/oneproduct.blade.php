@@ -183,17 +183,30 @@
 						<b>Opiniones de los compradores</b>
 					</p>
 					@if(isset(auth()->user()->name))
-					<p class="one_product_com">
+					<p>
 						{{auth()->user()->name}}
 					</p>
 					@endisset @if(!isset(auth()->user()->name))
-					<p class="one_product_com">
+					<p>
 						
 					</p>
 					@endisset
 
 					<div class="coments">
-						<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebuNCFlcILxuGsSGShzVP5ETv1g1oqyXSQSQzxGKhEwhp4HA/viewform?embedded=true" height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+						@if($_SESSION["lang"] == "espanol")
+							<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebuNCFlcILxuGsSGShzVP5ETv1g1oqyXSQSQzxGKhEwhp4HA/viewform?embedded=true" height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+						@elseif($_SESSION["lang"] == "english")
+						<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSevPr2MG2viQhPEOA9Y4lKsfaqyv3kmE5VxdAsdqRF9qpvDbA/viewform?embedded=true"  height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+						@elseif($_SESSION["lang"] == "deutsch")
+				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRHgaprrmflcEJfhAi08TqOlKEWVilWfnza-LZaVjSipLkiA/viewform?embedded=true"  height="400" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+						@endif
+						
+						
+						
+						
+						
+						
+						
 					</div>
 				</div>
 

@@ -144,18 +144,19 @@
 				<div class="product_container">
 
 					<div class="filter">
-						<h3>Filtros</h3>
-						<h4><b>Categorías</b></h4>
-						<h5>Categoría 1</h5>
-						<h5>Categoría 2</h5>
-						<h5>Categoría 3</h5>
-						<h5>Categoría 4</h5>
+						<h3 class="h3_filter">Filtros</h3>
+						<h4><b class="categories">Categorías</b></h4>
+						<h5 class="categorie">Categoría 1</h5>
+						<h5 class="categorie">Categoría 2</h5>
+						<h5 class="categorie">Categoría 3</h5>
+						<h5 class="categorie">Categoría 4</h5>
 					
 						<br>
-						<br>
-						<label>Precio</label><br>
+						
+						<label class="lab_price">Rango de precio</label><br>
+						<span>5€</span>
 						<input type="range" name="range_price" min="0" max="1000" step="10">
-
+						<span>1000€</span><br>
 					</div>
 
 					<div class="section">

@@ -32,6 +32,10 @@ $(document).ready(function() {
 			$('.log_out').val("Logout");
 			$('.log_in').val("Login");
 			$('.btn_mm').text("Show more");
+			$('.lab_price').text("Price range");
+			$('.h3_filter').text("Filter");
+			$('.categories').text("Categories");
+			$('.categorie').text("Categorie");
 			
 		
 			
@@ -64,6 +68,10 @@ $(document).ready(function() {
 			$('.log_in').val("Einloggen");
 			
 			$('.btn_mm').text("mehr anzeigen");
+			$('.lab_price').text("Preisspanne");
+			$('.h3_filter').text("Filter");
+			$('.categories').text("Kategorien");
+			$('.categorie').text("Kategorie");
 			
 		}else if(lenguage == 'espanol'){
 			/*
