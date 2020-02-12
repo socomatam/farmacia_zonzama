@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/pruebas', function () {
     //$products = App\Product::where('id', '=', 1)->get();
 		
@@ -44,7 +45,13 @@ Route::get('/pruebas', function () {
 	
 	
 	
-});
+});//fin pruebas
+
+
+
+
+
+
 
 Auth::routes();
 
@@ -64,10 +71,13 @@ Route::get('/projectcez', 'FarmaciaController@projectCez' );
 Route::get('/contact', 'FarmaciaController@contact' );
 Route::get('/item/{id}', 'FarmaciaController@mostratProducto' );
 Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
-Route::get('/orderproductsbyprice/{value}', 'FarmaciaController@orderProductsByPrice' );
-Route::get('/addtocar/{value}', 'FarmaciaController@addToCar' );
-Route::get('/buy', 'FarmaciaController@muestraCarro' )->middleware('auth');
-Route::get('/deletecar','FarmaciaController@deleteCar');
+Route::get('/orderproductsbyprice/{value}', 'FarmaciaController@orderProductsByPrice');
+Route::get('/addtocar', 'FarmaciaController@addToCar')->middleware('auth');
+Route::get('/buy/{user}', 'FarmaciaController@muestraCarro' )->middleware('auth');
+Route::get('/deletecar','FarmaciaController@deleteCar')->middleware('auth');
+Route::get('/getuserid','FarmaciaController@getUserId');
+
+
 
 
 //Route::get('/buy', 'FarmaciaController@comprar' )->middleware('auth');

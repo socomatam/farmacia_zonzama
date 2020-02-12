@@ -26,7 +26,7 @@
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
-			echo "hola";
+			
 		}
 	?>
 	<div class="container">
@@ -40,6 +40,17 @@
 					<option value="english">English</option>
 				</select>
 			</form>
+			@if(isset(auth()->user()->name))
+				<form class="form_login" action="{{url('/logout')}}" method="POST">
+					<input type="submit" value="Salir">
+				</form>
+			@endisset
+				
+			@if(!isset(auth()->user()->name))
+				<form class="form_login" action="{{url('/login')}}">
+					<input type="submit" value="Entrar">
+				</form>
+			@endisset
 		</div>
 
 		<?php
@@ -59,7 +70,7 @@
 						echo $_SESSION["lang"];
 
 					}else{
-						echo "No va";
+					
 					}
 						
 
@@ -89,9 +100,17 @@
 				<a class="ct_carrito">
 					<span></span>
 				</a>
-				<a class="carrito" href="{{url('/buy')}}">
-					<i class="fas fa-shopping-cart"></i>
-				</a>
+				@if(isset(auth()->user()->id))
+					<a class="carrito" href="{{url('/buy')}}/{{auth()->user()->id}}">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+				@endisset
+				
+				@if(!isset(auth()->user()->id))
+					<a class="carrito" href="{{url('/buy')}}/0">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+				@endisset
 
 			</div>
 

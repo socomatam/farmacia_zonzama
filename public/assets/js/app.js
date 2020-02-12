@@ -1,32 +1,61 @@
 $(document).ready(function() {
 	
+	//recoje el valor del local estoraje para el id del usuario 
+	var  car_user_id =  $('#car_user_id').text();
+	//localStorage.setItem('id_user', car_user_id );
 	
 	
-	/*
-	$('.borrar').click(function() {
-		if (localStorage.clickcount) {
-			localStorage.clickcount = 0;
-		} else {
-			localStorage.clickcount = 0;
-		}
+	
+	
+	$( '#email' ).focusout(function() {
 
-		$('.ct_carrito span').text(localStorage.clickcount);
-	}); //end click
+    	var login_email = $('#email').val();
+		
+		$.ajax({
+			method: 'GET',
+			url: '/getuserid',
+			data: {
+				login_email: login_email,
+			},
+			success: function(response) {
+				var id =0;
+				for(key in response){
+					
+					id = response[key];
+				}
+				
+				localStorage.setItem('id_user', id);
+				
+				
+				
+			} //fin succces
+		}); //end ajax
+		
+  	});//
+	
 
-	$('.btn_carrito').click(function() {
-		if (localStorage.clickcount) {
-			localStorage.clickcount = Number(localStorage.clickcount) + 1;
-		} else {
-			localStorage.clickcount = 1;
-		}
-
-		$('.ct_carrito span').text(localStorage.clickcount);
-	}); //end click
-	*/
 	
 	
 	$('.carrito').click(function(){
+		//event.preventDefault;
+		
+		var user = localStorage.getItem('id_user');
+		console.log(user);
+		
+		//$.ajax({
+		//	method: 'GET',
+		//	url: '/buy',
+		//	data: {
+		//		user: user,
+		//	},
+		//	success: function(response) {
+				
+			
+		//	} //fin succces
+		//});//ajax
+		
 		//$('.carrito').submit();
+		
 	});//end click
 	
 	//order all products by price
@@ -67,7 +96,6 @@ $(document).ready(function() {
 		var contact = $('.form_contact input:nth-child(1)').val();
 		var email = $('.form_contact input:nth-child(2)').val();
 
-		console.log(contacto);
 		var mensaje = 'd';
 
 		$.ajax({
@@ -83,13 +111,25 @@ $(document).ready(function() {
 		}); //fin ajax
 	}); //end click
 
-	//
-	$('.btn_carrito').click(function() {
+	//añade artículos al carrito junto con el id del usuari logeado
+	$('.btn_carrito').click(function(event) {
+		event.preventDefault;
+
+			
 		var value = $('.id_product').text();
 		
-
+		var user = localStorage.getItem('id_user');
+		//console.log(localStorage.getItem('id_user'));
+		console.log(localStorage.getItem('id_user'));
+		
+		
 		$.ajax({
-			url: '/addtocar/' + value,
+			method: 'GET',
+			url: '/addtocar',
+			data:{
+				value: value,
+				user: user,
+			},
 			success: function(response) {
 				
 				toastr.options = {
@@ -120,12 +160,40 @@ $(document).ready(function() {
 						Command: toastr['success']('sdfdsfsd '+ response['nombre_es'] +' al carrito', 'Carrito');
 				 }else{
 					 Command: toastr['success']('sdfdsfsd '+ response['nombre_es'] +' al carrito', 'Carrito');
-				 }
+				 }//end else
 				
-				
-				
-
-			} //fin succces
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    
+				if(errorThrown == 'Unauthorized'){
+					
+					toastr.options = {
+					  "closeButton": false,
+					  "debug": false,
+					  "newestOnTop": false,
+					  "progressBar": false,
+					  "positionClass": "toast-top-right",
+					  "preventDuplicates": false,
+					  "onclick": null,
+					  "showDuration": "300",
+					  "hideDuration": "1000",
+					  "timeOut": "5000",
+					  "extendedTimeOut": "1000",
+					  "showEasing": "swing",
+					  "hideEasing": "linear",
+					  "showMethod": "fadeIn",
+					  "hideMethod": "fadeOut"
+					}//fin config toars
+					
+					Command: toastr["info"]("Debe estar registrado antes de añadir artículos a la canasta.", "Información");
+  
+				}//end if
+            }  //end error
 		}); //end ajax
+		
 	}); //end click
+	
+	
+	
+	
 }); //end jquery

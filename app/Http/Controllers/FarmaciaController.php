@@ -9,29 +9,39 @@ use App\Tutorial;
 use App\Slider;
 use App\Product;
 use App\Carrito;
+use App\User;
 
 
 class FarmaciaController extends Controller{
 	
-	private $contadorCarrito ;
 	
-	public function __construct($contadorCarrito = 55){
-		$this->contadorCarrito = $contadorCarrito; 
-	}
+	public function getUserId(Request $request){
+		$user = $request->input('login_email');
+		
+		
+		$id = User::where("email","=",$user)->select("id")->get()[0];
+		
+		return $id;
+	}//
+	
 	
 	public function deleteCar(){
-		 $r =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen');
-		$r->delete();
+		$carrito =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen');
+		$carrito->delete();
 		$grupo = [];
 		$total = 0;
 		$aux = [];
 		return view('farmacia.buy', compact('grupo', 'total', 'aux'));
 	}//end delete car
 	
-	public function muestraCarro(){
+	public function muestraCarro($user){
+		
+		//$user = $request->input('user');
+		
+		//dd($user);
 		$total = Carrito::sum('precio');
-		$grupo = Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
-		//dd($ca
+		$grupo = Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->where('id_user', '=', $user)->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
+		
 		$carrito = Carrito::all();
 		
 		$aux = [];
@@ -52,7 +62,12 @@ class FarmaciaController extends Controller{
 	}//end muestra carro
 	
 	
-	public function addToCar($value){	
+	public function addToCar(Request $request){
+		$value = $request->input('value');
+		$id = $request->input('user');
+		
+	
+		
 		$products = Product::where('id', '=', $value)->get();
 		$a = [];
 		
@@ -67,6 +82,8 @@ class FarmaciaController extends Controller{
 		$carro->id_producto = $a->id;
 		$carro->precio = $a->precio;
 		$carro->imagen = $a->imagen;
+		$carro->id_user = $id;
+		
 		$carro->save();	
 		
 		return $a;
@@ -88,7 +105,8 @@ class FarmaciaController extends Controller{
 	
 	
 	public function email(Request $request){
-		
+		$mensaje = $request->input("mensaje");
+		dd($mensaje);
 	}//end emial
 	
 	public function setContador($contadorCarrito){

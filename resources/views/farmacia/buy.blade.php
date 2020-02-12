@@ -30,27 +30,44 @@
 		<form id="return_home" action="{{url('/')}}" method="GET">
 			<div class="cabecera">
 				<!--<img src="img/banner.png">-->
-				<select>
+				<form class="send" action="#" method="GET">
+				<select name="selected_lang">
 					<option>Idioma</option>
-					<option>Inglés</option>
-					<option>Español</option>
+					<option value="espanol">Español</option>
+					<option value="deutsch">Deutsch</option>
+					<option value="english">English</option>
 				</select>
+			</form>
+			@if(isset(auth()->user()->name))
+				<form class="form_login" action="{{url('/logout')}}" method="POST">
+					<input type="submit" value="Salir">
+				</form>
+			@endisset
+				
+			@if(!isset(auth()->user()->name))
+				<form class="form_login" action="{{url('/login')}}">
+					<input type="submit" value="Entrar">
+				</form>
+			@endisset
 			</div>
 
 		</form>
+		
+		<spam  id="car_user_id" style="visibility: hidden;">{{ auth()->user()->email}} </spam>
 
 		<div class="web_content">
 			<div class="end_buy">
 				<div>
 					<table>
 						<tr>
-							<th colspan="2">Artículo</th>
+							<th class="buy_th" colspan="2">Artículo</th>
 
 							<th>Precio</th>
 							<th>Unidades</th>
 							<th>Total</th>
 						</tr>
-						{{$i =0}} @foreach($grupo as $c)
+						{{$i =0}} 
+						@foreach($grupo as $c)
 						<tr>
 							<td class="buy_img">
 								<img src="{{asset('/assets/img/products/'.$c->imagen , true) }}">

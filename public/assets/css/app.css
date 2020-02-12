@@ -81,12 +81,24 @@ select{
 .barra_menu i{ margin-right: 5px;}
 
 
-.carrito{
 
 
+.form_login input{
+	margin-top: 10px;
+	width: 100px;
+	float:right;
+	background: linear-gradient(151deg, #4CAF52, #7CD482);
+  	color: white;
+  	border: none;
+  	border-radius: 30px;
+  	height: 30px;
+	cursor: pointer;
 	
-}
 
+	box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.24);
+
+
+}
 
 
 
@@ -158,6 +170,9 @@ select{
 
 	
 }
+
+
+
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
