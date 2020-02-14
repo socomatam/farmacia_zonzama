@@ -17,6 +17,10 @@
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
+	
+	<!--Librerías toars-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
 </head>
 
@@ -103,7 +107,7 @@
 				@endisset
 				
 				@if(!isset(auth()->user()->id))
-					<a class="carrito" href="{{url('/buy')}}/0">
+					<a class="carrito_enpty">
 						<i class="fas fa-shopping-cart"></i>
 					</a>
 				@endisset

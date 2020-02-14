@@ -17,6 +17,13 @@
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
+	
+	<!--toars-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+	
+	<!--Vue-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
 
@@ -25,12 +32,10 @@
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
-			echo "hola";
+			
 		}
 	?>
 	<div class="container">
-		
-		
 		<div class="cabecera">
 			<!--<img src="img/banner.png">-->
 			<form class="send" action="#" method="GET">
@@ -55,24 +60,19 @@
 		</div>
 
 		<?php
-	
-					if(isset($_GET['selected_lang'])){
-						$lang = $_GET['selected_lang'];
+			if(isset($_GET['selected_lang'])){
+				
+				$lang = $_GET['selected_lang'];
 						
-						if($lang == "espanol"){
-							$_SESSION["lang"]=$lang;
-
-						}else if($lang == "deutsch"){
-							$_SESSION["lang"]=$lang;
-						}else if($lang == "english"){
-							$_SESSION["lang"]=$lang;
-						}
-
-
-					}
-
-				?>
-
+				if($lang == "espanol"){
+					$_SESSION["lang"]=$lang;
+				}else if($lang == "deutsch"){
+					$_SESSION["lang"]=$lang;
+				}else if($lang == "english"){
+					$_SESSION["lang"]=$lang;
+				}//end else
+			}//end if
+		?>
 			<div class="barra_menu">
 				<a href="">
 					<i class="fas fa-bars"></i>
@@ -104,11 +104,10 @@
 				@endisset
 				
 				@if(!isset(auth()->user()->id))
-					<a class="carrito" href="{{url('/buy')}}/0">
+					<a class="carrito_enpty">
 						<i class="fas fa-shopping-cart"></i>
 					</a>
 				@endisset
-
 			</div>
 
 			<div class="web_content">

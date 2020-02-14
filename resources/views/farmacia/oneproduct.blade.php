@@ -23,10 +23,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
+	
+	
+	
+	
+	
 </head>
 
 <body>
 
+	@if(isset(auth()->user()->name))
+				<spam class="id_register">{{auth()->user()->id}}</spam>
+			@endisset
 	<?php 
 		session_start();
 		if(!isset($_SESSION["lang"])){
@@ -105,7 +113,7 @@
 					<i class="fas fa-shopping-cart"></i>
 				</a>
 				@endisset @if(!isset(auth()->user()->id))
-				<a class="carrito" href="{{url('/buy')}}/0">
+				<a class="carrito_enpty">
 					<i class="fas fa-shopping-cart"></i>
 				</a>
 				@endisset
@@ -139,10 +147,23 @@
 
 						<div class="btn_oneproduct">
 							<button class="btn_carrito">
-								<i class="fas fa-cart-plus"></i> Añadir al carro</button>
-							<button>
-								<a class="btn_shop" href="{{url('/buy')}}">Comprar ahora</a>
+								<i class="fas fa-cart-plus"></i> Añadir al carro
 							</button>
+							
+							@if(isset(auth()->user()->id))
+							<button class="">
+								<a class="btn_carrito btn_shop" href="{{url('/buy')}}/{{auth()->user()->id}}">Comprar ahora</a>
+							</button>
+							@endisset @if(!isset(auth()->user()->id))
+							
+							<button class="carrito_enpty btn_shop">
+								Comprar ahora
+							</button>
+							@endisset
+							
+
+							
+
 						</div>
 
 					</div>

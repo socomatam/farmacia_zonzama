@@ -14,6 +14,10 @@
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
+	
+	<!--Librerías toars-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
 </head>
 
@@ -22,12 +26,12 @@
 		session_start();
 		if(!isset($_SESSION["lang"])){
 			$_SESSION["lang"]="espanol";
-			echo "hola";
+			
 		}
 	?>
 	<div class="container">
 
-		<form id="return_home" action="{{url('/')}}" method="GET">
+	
 			<div class="cabecera">
 				<!--<img src="img/banner.png">-->
 				<form class="send" action="#" method="GET">
@@ -51,28 +55,36 @@
 			@endisset
 			</div>
 
-		</form>
 		
-		<spam  id="car_user_id" style="visibility: hidden;">{{ auth()->user()->email}} </spam>
+		
+		
 
 		<div class="web_content">
 			<div class="end_buy">
-				<div>
+				<div class="tabla_carro">
 					<table>
 						<tr>
-							<th class="buy_th" colspan="2">Artículo</th>
+							<th class="buy_th" colspan="2" width="200">Artículo</th>
 
-							<th>Precio</th>
-							<th>Unidades</th>
-							<th>Total</th>
+							<th width="100">Precio</th>
+							<th width="100">Unidades</th>
+							<th width="100">Total</th>
 						</tr>
-						{{$i =0}} 
+						<spam class="hide_price">{{$i =0}}  </spam>
 						@foreach($grupo as $c)
 						<tr>
 							<td class="buy_img">
 								<img src="{{asset('/assets/img/products/'.$c->imagen , true) }}">
 							</td>
-							<td>{{$c->nombre_es}}</td>
+
+							@if($_SESSION["lang"] == "espanol")
+								<td>{{$c->nombre_es}}</td>
+							@elseif($_SESSION["lang"] == "english")
+								<td>{{$c->nombre_en}}</td>
+							@elseif($_SESSION["lang"] == "deutsch")
+								<td>{{$c->nombre_de}}</td>					
+							@endif
+
 							<td>{{$c->precio}} €</td>
 							<td>
 								<i class="fas fa-plus"></i>{{$aux[$i]}}
@@ -80,28 +92,34 @@
 							</td>
 							<td>{{$c->precio * $aux[$i]}} €</td>
 						</tr>
-						{{$i++}} @endforeach
+						<spam class="hide_price">{{$i++}}</spam>
+						
+						@endforeach
+	
 					</table>
 
 					<form action="{{url('/deletecar')}}" method="GET">
-						<input type="submit" value="Borrar carrito">
+						<input class="btn_delete_cart"  type="submit" value="Borrar carrito">
 					</form>
-					<button>Vaciar cesta</button>
-
+					
+					<form action="{{url('/products')}}">
+						<input class="btn_keep_buying"  type="submit" value="Seguir comprando">
+					</form>
+					
 				</div>
 				<div>
-					<div>
+					<div class="finish_buy">
 						<span>Total</span>
-						<span class="total_price">{{$total}}</span>
+						<span class="total_price">{{$totals ?? '0'}} €</span>
 					</div>
-					<button>
+					<button class="btn_end_buy">
 						Finalizar compra
 					</button>
 				</div>
 			</div>
 		</div>
 
-		<!--end web_content-->
+	
 
 	</div>
 </body>

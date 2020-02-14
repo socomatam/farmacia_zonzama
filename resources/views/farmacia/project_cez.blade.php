@@ -17,6 +17,10 @@
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
+	
+	<!--Librerías toars-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
 </head>
 
@@ -67,7 +71,7 @@
 							$_SESSION["lang"]=$lang;
 						}
 				
-						echo $_SESSION["lang"];
+			
 
 					}else{
 					
@@ -107,7 +111,7 @@
 				@endisset
 				
 				@if(!isset(auth()->user()->id))
-					<a class="carrito" href="{{url('/buy')}}/0">
+					<a class="carrito_enpty">
 						<i class="fas fa-shopping-cart"></i>
 					</a>
 				@endisset
@@ -145,13 +149,31 @@
 					<span class="dot" onclick="currentSlide(2)"></span>
 					<span class="dot" onclick="currentSlide(3)"></span>
 				</div>
+				
+				
 
-				<div class="project_text">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Lorem ipsum dolor sit amet, consectetur adipiscing
-					elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
-				</div>
+						@if($_SESSION["lang"] == "espanol")				
+							<div class="project_text">
+								INTRODUCCION DEL PROYECTO<br>
+El taller de Innovación llamado "Cosmética Educativa Zonzamas" (ZEC / CEZ) es un proyecto alentado por el Departamento de Salud de CIFP Zonzamas y apoyado principalmente por estudiantes de segundo año de la CFGM de Farmacia y Parafarmacia a través de la asignatura de Formulación Maestra. Este proyecto multidisciplinario y colaborativo tiene como objetivo crear vínculos con el sector empresarial parafarmacéutico de la isla a través del desarrollo de una gama de cinco productos cosméticos fabricados en nuestra escuela bajo la identidad ZEC. Además, para cumplir e integrar el proyecto, se ha involucrado a estudiantes de diferentes cursos y calificaciones profesionales (salud, comercio y marketing, imagen personal y cuidado de la belleza, seguridad y medio ambiente, lenguas extranjeras, industrias alimentarias y TIC), y en cooperación con dos escuelas (IES Magallanes de Tenerife y CIFP Majada Marcial de Fuerteventura). Además, la participación de la empresa "Aloe Plus Lanzarote" y la asociación "Milana" de Lanzarote ha sido fundamental.
+							</div>
+						@elseif($_SESSION["lang"] == "english")
+							<div class="project_text">
+								INTRODUCTION OF THE PROJECT
+								<br>
+The Innovation workshop called “Zonzamas Educational Cosmetics” (ZEC/CEZ) is a project encouraged by the Health Department at CIFP Zonzamas and supported mainly by the second year students of the CFGM of Pharmacy and Parapharmacy through the subject of Master Formulation.
+This multidisciplinary and collaborative project aims to create bonds with the Parapharmaceutical business sector of the island through the development of a range of five cosmetic products made in our school under the ZEC identity.
+In addition, to fulfill and integrate the project, students from different professional courses and grades have been involved (Health, Commerce and Marketing, Personal Image and Beauty Care, Security and Environment, Foreign Languages, Food Industries, and ICT), and cooperatively with two schools (IES Magallanes from Tenerife and CIFP Majada Marcial from Fuerteventura). Furthermore, the involvement of the company “Aloe Plus Lanzarote” and the association “Milana” from Lanzarote has been fundamental.
+							</div>
+						@elseif($_SESSION["lang"] == "deutsch")
+							<div class="project_text">
+								
+EINLEITUNG DES PROJEKTS<br>
+Der Innovationsworkshop mit dem Titel „Zonzamas Educational Cosmetics“ (ZEC / CEZ) ist ein Projekt, das vom Gesundheitsamt von CIFP Zonzamas gefördert und hauptsächlich von Studenten des zweiten Studienjahres der CFGM für Pharmazie und Parapharmazie durch das Thema Masterformulierung unterstützt wird. Dieses multidisziplinäre und kollaborative Projekt zielt darauf ab, durch die Entwicklung einer Reihe von fünf Kosmetikprodukten, die in unserer Schule unter der ZEC-Identität hergestellt werden, Verbindungen zum parapharmazeutischen Geschäftsbereich der Insel herzustellen. Um das Projekt zu erfüllen und zu integrieren, wurden Studenten aus verschiedenen professionellen Kursen und Klassen (Gesundheit, Handel und Marketing, persönliche Image- und Schönheitspflege, Sicherheit und Umwelt, Fremdsprachen, Lebensmittelindustrie und IKT) und kooperativ mit einbezogen zwei Schulen (IES Magallanes aus Teneriffa und CIFP Majada Marcial aus Fuerteventura). Darüber hinaus war das Engagement der Firma „Aloe Plus Lanzarote“ und des Vereins „Milana“ aus Lanzarote von grundlegender Bedeutung.
+							</div>
+						@endif
 
+					
 			</div>
 
 			<!--end web_content-->

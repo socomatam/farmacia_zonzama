@@ -20,16 +20,45 @@
 </head>
 
 <body>
+	
+	<?php 
+		session_start();
+		if(!isset($_SESSION["lang"])){
+			$_SESSION["lang"]="espanol";
+			
+		}
+	?>
+	
 	<div class="container">
 		<div class="cabecera">
-			<!--<img src="img/banner.png">-->
-			<select>
-				<option>Idioma</option>
-				<option>Inglés</option>
-				<option>Español</option>
-			</select>
-
+			<form class="send" action="#" method="GET">
+				<select name="selected_lang">
+					<option>Idioma</option>
+					<option value="espanol">Español</option>
+					<option value="deutsch">Deutsch</option>
+					<option value="english">English</option>
+				</select>
+			</form>
 		</div>
+		
+		<?php
+	
+					if(isset($_GET['selected_lang'])){
+						$lang = $_GET['selected_lang'];
+					
+						if($lang == "espanol"){
+							$_SESSION["lang"]=$lang;
+
+						}else if($lang == "deutsch"){
+							$_SESSION["lang"]=$lang;
+						}else if($lang == "english"){
+							$_SESSION["lang"]=$lang;
+						}//en else if
+				
+			
+					}
+
+				?>
 
 		<div class="web_content">
 			<div class="login_container">
@@ -83,13 +112,7 @@
 									{{ __('Login') }}
 								</button>
 
-								@if (Route::has('password.request'))
-								<button id="forgot_pass">
-									<a class="btn btn-link" href="{{ route('password.request') }}">
-										{{ __('Forgot Your Password?') }}
-									</a>
-								</button>
-								@endif
+							
 							</div>
 						</div>
 					</form>
@@ -102,9 +125,9 @@
 					<br>
 					<br>
 					<br>
-					<button>
+					<button class="btn_delete_cart">
 
-						<a href="{{url('/register')}}">Registrase</a>
+						<a class="btn_register_in_login" href="{{url('/register')}}">Registrase</a>
 
 					</button>
 				</div>

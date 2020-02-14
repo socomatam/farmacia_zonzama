@@ -12,6 +12,7 @@ use App\Carrito;
 use App\User;
 
 
+
 class FarmaciaController extends Controller{
 	
 	
@@ -38,8 +39,8 @@ class FarmaciaController extends Controller{
 		
 		//$user = $request->input('user');
 		
-		//dd($user);
-		$total = Carrito::sum('precio');
+		$totals = 0;
+		//$total = Carrito::sum('precio');
 		$grupo = Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->where('id_user', '=', $user)->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
 		
 		$carrito = Carrito::all();
@@ -47,10 +48,12 @@ class FarmaciaController extends Controller{
 		$aux = [];
 		$i= 0;
 		foreach($grupo as $p){
+			
 			foreach($carrito as $c){
 
 				if($p->id_producto == $c->id_producto){
 					$i++;
+					$totals = $totals + $p->precio;
 				}//fin if
 
 			}//fin for each
@@ -58,16 +61,13 @@ class FarmaciaController extends Controller{
 			$i=0;
 		}//fin 
 	
-		return view('farmacia.buy', compact('grupo', 'total', 'aux'));
+		return view('farmacia.buy', compact('grupo', 'totals','aux'));
 	}//end muestra carro
 	
 	
 	public function addToCar(Request $request){
 		$value = $request->input('value');
 		$id = $request->input('user');
-		
-	
-		
 		$products = Product::where('id', '=', $value)->get();
 		$a = [];
 		
@@ -85,18 +85,11 @@ class FarmaciaController extends Controller{
 		$carro->id_user = $id;
 		
 		$carro->save();	
-		
 		return $a;
 		
 	}//fin carrito
 	
 	public function orderProductsByPrice($value){
-		
-		
-	
-	
-//$user = DB::table('users')->where('name', 'John')->first();
-
 
 		$products = Product::where('precio', '<', $value)->get();
 		return view('farmacia.products', compact('products'));
@@ -165,6 +158,7 @@ class FarmaciaController extends Controller{
     }//end collabortors
 	
 	public function projectCez(){
+		
         return view('farmacia.project_cez');
     }//end project_cez
 	

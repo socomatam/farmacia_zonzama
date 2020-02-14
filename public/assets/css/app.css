@@ -66,7 +66,10 @@ select{
 }
 
 
-.fa-shopping-cart{ font-size: 20px }
+.fa-shopping-cart{ 
+	font-size: 20px;
+	cursor:pointer;
+}
 
 
 #seleccionado{ color: white;}
@@ -93,12 +96,12 @@ select{
   	border-radius: 30px;
   	height: 30px;
 	cursor: pointer;
-	
-
 	box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.24);
-
-
 }
+
+
+
+
 
 
 

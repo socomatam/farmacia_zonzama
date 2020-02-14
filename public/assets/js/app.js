@@ -1,15 +1,21 @@
 $(document).ready(function() {
 	
+	
+	setIdUser();
+	
+	function setIdUser(){
+		var id = $('.id_register').text();
+		
+		localStorage.setItem('id_user', id);
+	}
+	
+	
 	//recoje el valor del local estoraje para el id del usuario 
 	var  car_user_id =  $('#car_user_id').text();
 	//localStorage.setItem('id_user', car_user_id );
 	
-	
-	
-	
-	$( '#email' ).focusout(function() {
-
-    	var login_email = $('#email').val();
+	$('#btn_login').click(function(){
+		var login_email = $('#email').val();
 		
 		$.ajax({
 			method: 'GET',
@@ -31,30 +37,45 @@ $(document).ready(function() {
 			} //fin succces
 		}); //end ajax
 		
-  	});//
+	});
 	
 
 	
 	
-	$('.carrito').click(function(){
-		//event.preventDefault;
+	$('.carrito_enpty').click(function(){
+	
+
+		toastr.options = {
+			"closeButton": false,
+			"debug": false,
+			"newestOnTop": false,
+			"progressBar": false,
+			"positionClass": "toast-top-right",
+			"preventDuplicates": false,
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		}//fin config toars
 		
-		var user = localStorage.getItem('id_user');
-		console.log(user);
-		
-		//$.ajax({
-		//	method: 'GET',
-		//	url: '/buy',
-		//	data: {
-		//		user: user,
-		//	},
-		//	success: function(response) {
+		var lenguage = sessionStorage.getItem('lenguage');
 				
-			
-		//	} //fin succces
-		//});//ajax
+				if(lenguage == "espanol"){
+				    	Command: toastr["info"]("Debe estar registrado antes de acceder a la canasta.", "Información");
+				 }else if(lenguage == "english"){
+				 		Command: toastr["info"]("You must be registered before accessing the basket.", "Information");
+				 }else if(lenguage == "deutsch" ){
+						Command: toastr["info"]("Sie müssen registriert sein, bevor Sie auf den Warenkorb zugreifen können.", "Informationen");
+				 }else{
+					
+				 }//end else
 		
-		//$('.carrito').submit();
+		
 		
 	});//end click
 	
@@ -114,13 +135,12 @@ $(document).ready(function() {
 	//añade artículos al carrito junto con el id del usuari logeado
 	$('.btn_carrito').click(function(event) {
 		event.preventDefault;
-
+		
 			
 		var value = $('.id_product').text();
 		
 		var user = localStorage.getItem('id_user');
-		//console.log(localStorage.getItem('id_user'));
-		console.log(localStorage.getItem('id_user'));
+		
 		
 		
 		$.ajax({
