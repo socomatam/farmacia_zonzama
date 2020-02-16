@@ -74,9 +74,9 @@ Route::get('/orderproducts/{value}', 'FarmaciaController@orderProducts' );
 Route::get('/orderproductsbyprice/{value}', 'FarmaciaController@orderProductsByPrice');
 Route::get('/addtocar', 'FarmaciaController@addToCar')->middleware('auth');
 Route::get('/buy/{user}', 'FarmaciaController@muestraCarro' )->middleware('auth');
-Route::get('/deletecar','FarmaciaController@deleteCar')->middleware('auth');
+Route::get('/deletecar/{value}','FarmaciaController@deleteCar')->middleware('auth');
 Route::get('/getuserid','FarmaciaController@getUserId');
-
+Route::get('/pay','FarmaciaController@paying');
 
 
 

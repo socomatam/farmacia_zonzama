@@ -519,6 +519,11 @@ hr{
 
 /*--------END BUY--------*/
 
+.btn_end_buy a{
+	color: white;
+	text-decoration: none;
+}
+
 .end_buy div{
 	border: 1px solid grey;
 }

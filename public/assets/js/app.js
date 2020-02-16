@@ -65,18 +65,16 @@ $(document).ready(function() {
 		
 		var lenguage = sessionStorage.getItem('lenguage');
 				
-				if(lenguage == "espanol"){
-				    	Command: toastr["info"]("Debe estar registrado antes de acceder a la canasta.", "Información");
-				 }else if(lenguage == "english"){
-				 		Command: toastr["info"]("You must be registered before accessing the basket.", "Information");
-				 }else if(lenguage == "deutsch" ){
-						Command: toastr["info"]("Sie müssen registriert sein, bevor Sie auf den Warenkorb zugreifen können.", "Informationen");
-				 }else{
-					
-				 }//end else
-		
-		
-		
+		if(lenguage == "espanol"){
+			Command: toastr["info"]("Debe estar registrado antes de acceder a la canasta.", "Información");
+		}else if(lenguage == "english"){
+			Command: toastr["info"]("You must be registered before accessing the basket.", "Information");
+		}else if(lenguage == "deutsch" ){
+			Command: toastr["info"]("Sie müssen registriert sein, bevor Sie auf den Warenkorb zugreifen können.", "Informationen");
+		}else{
+			Command: toastr["info"]("Debe estar registrado antes de acceder a la canasta.", "Información");
+		}//end else
+
 	});//end click
 	
 	//order all products by price
@@ -133,16 +131,14 @@ $(document).ready(function() {
 	}); //end click
 
 	//añade artículos al carrito junto con el id del usuari logeado
-	$('.btn_carrito').click(function(event) {
-		event.preventDefault;
+	$('.btn_carrito').click(function() {
+	
 		
 			
 		var value = $('.id_product').text();
 		
 		var user = localStorage.getItem('id_user');
-		
-		
-		
+
 		$.ajax({
 			method: 'GET',
 			url: '/addtocar',
@@ -181,7 +177,7 @@ $(document).ready(function() {
 				 }else{
 					 Command: toastr['success']('sdfdsfsd '+ response['nombre_es'] +' al carrito', 'Carrito');
 				 }//end else
-				
+				//toCart();
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) { 
                     
@@ -211,8 +207,40 @@ $(document).ready(function() {
             }  //end error
 		}); //end ajax
 		
+
 	}); //end click
 	
+	function toCart(){
+			$("#click").submit();
+		
+		//$('#click').trigger('click');
+	}//end to cart
+    
+	$('.btn_buy_now').click(function(){
+		
+			
+		var value = $('.id_product').text();
+		
+		var user = localStorage.getItem('id_user');
+
+		$.ajax({
+			method: 'GET',
+			url: '/addtocar',
+			data:{
+				value: value,
+				user: user,
+			},
+			success: function(response) {
+				$("#click").submit();
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) { 
+              
+            }  //end error
+		}); //end ajax
+		
+		
+		
+	});
 	
 	
 	

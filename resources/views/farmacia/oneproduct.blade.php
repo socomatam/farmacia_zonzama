@@ -108,11 +108,15 @@
 				<a class="ct_carrito">
 					<span></span>
 				</a>
+				
+			
 				@if(isset(auth()->user()->id))
-				<a class="carrito" href="{{url('/buy')}}/{{auth()->user()->id}}">
+				<a class="carrito"  href="{{url('/buy')}}/{{auth()->user()->id}}">
 					<i class="fas fa-shopping-cart"></i>
 				</a>
-				@endisset @if(!isset(auth()->user()->id))
+
+				@endisset 
+				@if(!isset(auth()->user()->id))
 				<a class="carrito_enpty">
 					<i class="fas fa-shopping-cart"></i>
 				</a>
@@ -121,6 +125,15 @@
 			</div>
 
 			<div class="web_content">
+				
+				
+				
+				@if(isset(auth()->user()->id))
+				
+				
+				<form id="click" action="{{url('/buy')}}/{{auth()->user()->id}}">
+				</form>
+				@endisset 
 				<div class="one_product">
 					<div>
 						<div>
@@ -146,13 +159,14 @@
 						</div>
 
 						<div class="btn_oneproduct">
-							<button class="btn_carrito">
+							<button  class="btn_carrito">
 								<i class="fas fa-cart-plus"></i> Añadir al carro
 							</button>
 							
 							@if(isset(auth()->user()->id))
 							<button class="">
-								<a class="btn_carrito btn_shop" href="{{url('/buy')}}/{{auth()->user()->id}}">Comprar ahora</a>
+								<!--href="{{url('/buy')}}/{{auth()->user()->id}}"-->
+								<a class="btn_buy_now btn_shop" >Comprar ahora</a>
 							</button>
 							@endisset @if(!isset(auth()->user()->id))
 							
@@ -257,3 +271,4 @@
 </body>
 
 </html>
+

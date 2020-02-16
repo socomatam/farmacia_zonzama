@@ -98,7 +98,7 @@
 	
 					</table>
 
-					<form action="{{url('/deletecar')}}" method="GET">
+					<form action="{{url('/deletecar')}}/{{auth()->user()->id}}" method="GET">
 						<input class="btn_delete_cart"  type="submit" value="Borrar carrito">
 					</form>
 					
@@ -113,7 +113,8 @@
 						<span class="total_price">{{$totals ?? '0'}} €</span>
 					</div>
 					<button class="btn_end_buy">
-						Finalizar compra
+						<a href="{{url('/pay')}}">Finalizar compra</a>
+				
 					</button>
 				</div>
 			</div>

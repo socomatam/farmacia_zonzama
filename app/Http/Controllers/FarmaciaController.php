@@ -25,9 +25,13 @@ class FarmaciaController extends Controller{
 		return $id;
 	}//
 	
+	public function paying(){
+		return view('farmacia.endbuy');
+	} 
 	
-	public function deleteCar(){
-		$carrito =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen');
+	
+	public function deleteCar($value){
+		$carrito =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->where('id_user', '=', $value);
 		$carrito->delete();
 		$grupo = [];
 		$total = 0;
@@ -43,7 +47,8 @@ class FarmaciaController extends Controller{
 		//$total = Carrito::sum('precio');
 		$grupo = Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->where('id_user', '=', $user)->groupBy('id_producto','nombre_es','nombre_de','nombre_en','precio','imagen')->get();
 		
-		$carrito = Carrito::all();
+		//$carrito = Carrito::all();
+		$carrito =Carrito::selectRaw('id_producto,nombre_es,nombre_de,nombre_en,precio,imagen')->where('id_user', '=', $user)->get();
 		
 		$aux = [];
 		$i= 0;
@@ -66,7 +71,10 @@ class FarmaciaController extends Controller{
 	
 	
 	public function addToCar(Request $request){
+		
+
 		$value = $request->input('value');
+		
 		$id = $request->input('user');
 		$products = Product::where('id', '=', $value)->get();
 		$a = [];

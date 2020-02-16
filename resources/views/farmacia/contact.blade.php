@@ -6,16 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Farmacia Zonzamas</title>
-
+	
+	
+	<!--jquery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!--css-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/app.css', true) }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/variable_web_content.css', true) }}">
 	<script src="https://kit.fontawesome.com/63246e723f.js" crossorigin="anonymous"></script>
+	
+	
 	<script src="{{ asset('/assets/js/app.js',true)}}"></script>
 	<script src="{{ asset('/assets/js/slider_index.js',true)}}"></script>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	
+	<!--translattion-->
 	<script src="{{ asset('/assets/js/translate.js',true)}}"></script>
 	
 	<!--toars-->
@@ -24,6 +30,10 @@
 	
 	<!--Vue-->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="{{ asset('/assets/js/vue.js',true)}}"></script>
+	
+	
+
 
 </head>
 
@@ -111,7 +121,7 @@
 			</div>
 
 			<div class="web_content">
-				<div class="contact">
+				<div id="app_contact" class="contact">
 					<div>
 						<h2 class="lang_contact_lo">Localización</h2>
 
@@ -119,17 +129,17 @@
 						<br>
 						<br>
 						<i class="fas fa-map-marker-alt">
-							<span> Calle Dr. Barraquer, 6, 35500 Arrecife, Las Palmas</span>
+							<span> @{{address}}</span>
 						</i>
 						<br>
 						<br>
 						<i class="fas fa-envelope">
-							<span> cifpzonzamas@mail.com</span>
+							<span> @{{email}} </span>
 						</i>
 						<br>
 						<br>
 						<i class="fas fa-phone-square">
-							<span> 928 81 31 14</span>
+							<span> @{{phone}} </span>
 						</i>
 
 					</div>
