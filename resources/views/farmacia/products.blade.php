@@ -23,6 +23,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 	
+	<!--Vue products-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="{{ asset('/assets/js/vue_product.js',true)}}"></script>
+	
 </head>
 
 <body>
@@ -141,13 +145,14 @@
 
 				<div class="product_container">
 
-					<div class="filter">
+					<div id="list_categorie" class="filter">
 						<h3 class="h3_filter">Filtros</h3>
 						<h4><b class="categories">Categorías</b></h4>
-						<h5 class="categorie">Categoría 1</h5>
-						<h5 class="categorie">Categoría 2</h5>
-						<h5 class="categorie">Categoría 3</h5>
-						<h5 class="categorie">Categoría 4</h5>
+  							
+						<h5 v-for="item in items">
+    						@{{ item.category }}					
+						</h5>
+						
 					
 						<br>
 						

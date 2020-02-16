@@ -6,5 +6,8 @@ window.onload = function() {
 			email: 'cifpzonzamas@mail.com', 
 			phone: '928 81 31 14', 
 		},//end data
-	});//end appContact 
+	});//end appContact
+	
+
+	
 };

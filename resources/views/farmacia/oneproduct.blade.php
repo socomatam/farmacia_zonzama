@@ -7,6 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Farmacia Zonzamas</title>
+	
+	<!--Vue-->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="{{ asset('/assets/js/vue_one_product.js',true)}}"></script>
+	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/app.css', true) }}">
@@ -23,7 +28,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
-	
 	
 	
 	
@@ -134,7 +138,7 @@
 				<form id="click" action="{{url('/buy')}}/{{auth()->user()->id}}">
 				</form>
 				@endisset 
-				<div class="one_product">
+				<div  class="one_product">
 					<div>
 						<div>
 							<img src="{{asset('/assets/img/products/'.$product->miniatura_1 , true) }}">
@@ -152,14 +156,19 @@
 							<img src="{{asset('/assets/img/products/'.$product->miniatura_5 , true) }}">
 						</div>
 					</div>
-					<div>
+					<div id="">
 						<div>
 
 							<img src="{{asset('/assets/img/products/'.$product->imagen , true) }}">
 						</div>
-
+						<p >
+							@{{article}}
+							
+						
+						</p>
+						
 						<div class="btn_oneproduct">
-							<button  class="btn_carrito">
+							<button v-on:click="addArticle(1)"  class="btn_carrito">
 								<i class="fas fa-cart-plus"></i> Añadir al carro
 							</button>
 							

@@ -58,49 +58,56 @@
 		<div class="web_content">
 			<div class="end_buy">
 				<div class="tabla_carro">
-					<div id="registration">
+					<div class="buy_form">
 
 						<form>
-							<label>Username: </label>
+							<label>Nombre: </label>
+							<br>
 							<input type="text" name="username" placeholder="Username">
-							<p style="display:none">Username must be and contain 5 - 12 characters</p>
+							<p style="display:none">El nombre no puede estar vacío</p>
 							<br>
-							<label>Surname: </label>
+							<label>Apellidos: </label>
+							<br>
 							<input type="text" name="surname" placeholder="Surname">
-							<p style="display:none">Surname must be and contain 5 - 12 characters</p>
+							<p style="display:none">El campo apellidos no puede estar vacío</p>
 							<br>
-							<label>Id card name: </label>
+							<label>DNI: </label>
+							<br>
 							<input type="text" name="id_card_name" placeholder="Id card name">
 							<p style="display:none">Must contain 9 numbers and one letter</p>
 							<br>
-							<label>Data of bird: </label>
+							<label>Fecha de nacimiento: </label>
+							<br>
 							<input type="text" name="date_of_bird" placeholder="Date of bird">
 							<p style="display:none">Format must be: dd/mm/yyyy</p>
 							<br>
 							<label>Postal code: </label>
+							<br>
 							<input type="text" name="postal_code" placeholder="Postal Code">
 							<p style="display:none">The first two numbers must not exceed numeber 52. Example: 35500 </p>
 							<br>
 							<label>E-mail: </label>
+							<br>
 							<input type="text" name="email" placeholder="Email">
 							<p style="display:none">Example: mail@mail.com</p>
 							<br>
-							<label>Telephone: </label>
+							<label>Telephone: </label><br>
 							<input type="text" name="telephone" placeholder="Telephone">
 							<p style="display:none">8XXXXXXXX or 9XXXXXXXX</p>
 							<br>
-							<label>Movile: </label>
+							<label>Movile: </label><br>
 							<input type="text" name="movil" placeholder="Movil">
 							<p style="display:none">Example: 612333333</p>
 							<br>
-							<label>IBAN: </label>
+							<label>IBAN: </label><br>
 							<input type="text" name="iban" placeholder="IBAN">
 							<p style="display:none">Example: ES9820385778983000760236</p>
 							<br>
-							<label>Credit card: </label>
+							<label>Credit card: </label><br>
 							<input type="text" name="credit_card" placeholder="Credit Card">
 							<p style="display:none">Example: 1234 1234 1234 1234</p>
 							<br>
+							<input type="submit" value= Enviar>
 
 						</form>
 					</div>

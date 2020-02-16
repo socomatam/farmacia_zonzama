@@ -627,6 +627,18 @@ table td{
 	box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.24);
 }
 
+/*--------------------------------*/
+
+.buy_form form{
+	margin-left: 10%;
+	
+}
+
+.buy_form form input{
+	width:50%;
+	
+}
+
 
 
 
