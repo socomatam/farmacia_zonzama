@@ -20,11 +20,29 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 	
 	<!--Buy form-->
-	<script src="{{ asset('/assets/js/buy_form.js',true)}}"></script>
+	
+	
+
 	
 	<!--Vue-->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="{{ asset('/assets/js/vue_endbuy.js',true)}}"></script>
+	
+	<script src="{{ asset('/assets/js/buy_form.js',true)}}"></script>
+	
+	
+	
+
+
+		<!--firebase
+
+	<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+		<script src="https://unpkg.com/vuefire@2.2.1/dist/vuefire.js"></script>
+-->
+
+	<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase.js"></script>
+
+	
 	
 </head>
 
@@ -60,29 +78,17 @@
 		</div>
 
 		<div class="web_content">
-			<div class="end_buy">
-				<div class="tabla_carro">
-					<div id="app_endbuy" class="buy_form">
-						<buy 
-							
-							 name="Nombre"
-							 surname="Apellido"
-							 dni="DNI"
-							 born="Fecha de nacimiento"
-							 postal_code="Código Postal"
-							 email="E-mail"
-							 phone="Teléfono"
-							 credit_card="Tarjeta de crédito"
-						>
-						
-						</buy>
-						
-					</div>
-
-				</div>
+			<div class="">
 				<div>
-
+					<div id="app_endbuy" class="">
+						<buy_form
+							name="Nombre"
+								  >
+						
+						</buy_form>
+					</div>
 				</div>
+				
 			</div>
 		</div>
 

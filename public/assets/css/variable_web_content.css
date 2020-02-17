@@ -629,14 +629,30 @@ table td{
 
 /*--------------------------------*/
 
-.buy_form form{
-	margin-left: 10%;
-	
+#app form{
+	margin: 5%;
 }
 
-.buy_form form input{
-	width:50%;
-	
+#app form input{
+	width:30%;
+}
+
+#app {
+	display: grid;
+	grid-template-columns: 65% 35%;
+}
+
+.btn__buy{
+	  margin-top: 20px;
+	margin-bottom: 20px;
+	  background: linear-gradient(151deg, #4CAF52, #7CD482);
+	  color: white;
+	  border: none;
+	  border-radius: 30px;
+	  height: 35px;
+	  width: 100px;
+	  cursor: pointer;
+	box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.24);
 }
 
 

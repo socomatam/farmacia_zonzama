@@ -1,62 +1,207 @@
-				 
 window.onload = function() { 
+
+	var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	
-	Vue.component('buy', {
-	 props: ['name', 'surname','dni','born', 'postal_code', 'email','phone','credit_card' ],
-	 template:  
+	var dniRE = /^[0-9]{8,8}[A-Za-z]$/
+	var phoneRE = /^(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}$/
+	var fechaRE = /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[/\\/](19|20)\d{2}$/
+	var cpRE = /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/
+	var creditRE = /^(?:(\d{4}\s?){4}|(\d{4,6}\s?){3})$/
 
-			`<form>
-				<label>{{name}}</label>
+	
+	
+
+	var firebaseConfig = {
+		apiKey: "AIzaSyD7nujg1YO8DET7Vd3__JH6st6h8goPi0U",
+		authDomain: "farmacia-zonzamas.firebaseapp.com",
+		databaseURL: "https://farmacia-zonzamas.firebaseio.com",
+		projectId: "farmacia-zonzamas",
+		storageBucket: "farmacia-zonzamas.appspot.com",
+		messagingSenderId: "355497703752",
+		appId: "1:355497703752:web:ec4fd850fde5a5e61e1b7d",
+		measurementId: "G-QTQ3L4QR1Z"
+  	};
+ 	 // Initialize Firebase
+  	firebase.initializeApp(firebaseConfig);
+	
+	var usersRef = firebase.database().ref('users')
+
+	Vue.component('buy_form', {
+
+		props: ['name' ],
+
+		template: `
+		<div id="app">
+			<form v-on:submit.prevent="addUser">
+				<h3>Introduzca sus datos para efectuar el envío</h3>
+				<label>Nombre</label>
 				<br>
-				<input type="text" name="username" placeholder="Username">
-				<p style="display:none">El campo nombre no puede estar vacío</p>
-				<br>
-				<label>{{surname}}</label>
-				<br>
-				<input type="text" name="surname" placeholder="Surname">
-				<p style="display:none">El campo apellidos no puede estar vacío</p>
-				<br>
-				<label>{{dni}} </label>
-				<br>
-				<input type="text" name="id_card_name" placeholder="Id card name">
-				<p style="display:none">Must contain 9 numbers and one letter</p>
-				<br>
-				<label>{{born}}</label>
-				<br>
-				<input type="text" name="date_of_bird" placeholder="Date of bird">
-				<p style="display:none">Format must be: dd/mm/yyyy</p>
-				<br>
-				<label>{{postal_code}}</label>
-				<br>
-				<input type="text" name="postal_code" placeholder="Postal Code">
-				<p style="display:none">The first two numbers must not exceed numeber 52. Example: 35500 </p>
-				<br>
-				<label>{{email}}</label>
-				<br>
-				<input type="text" name="email" placeholder="Email">
-				<p style="display:none">Example: mail@mail.com</p>
-				<br>
-				<label>{{phone}} </label><br>
-				<input type="text" name="telephone" placeholder="Telephone">
-				<p style="display:none">8XXXXXXXX or 9XXXXXXXX</p>
+				<input type="text" v-model="newUser.name" placeholder="Nombre">
+				<i v-show="!validation.name">El nombre no puede estar vacío.</i>
 				<br>
 
+				<label>Apellidos</label>
+				<br>
+				<input type="text" v-model="newUser.surname" placeholder="Apellidos">
+				<i v-show="!validation.surname">El nombre no puede estar vacío.</i>
+				<br>
 
-				<label>{{credit_card}}</label><br>
-				<input type="text" name="credit_card" placeholder="Credit Card">
-				<p style="display:none">Example: 1234 1234 1234 1234</p>
-				<br>`
-	});
+				<label>DNI</label>
+				<br>
+				<input type="text" v-model="newUser.dni" placeholder="DNI">
+				<i v-show="!validation.dni">El nombre no puede estar vacío.</i>
+				<br>
 
 
-	new Vue({
-	 	el: '#app_endbuy',
-		data: {
-			nombre: 'nombre',
+				<label>Fecha Nacimiento</label>
+				<br>
+				<input type="text" v-model="newUser.fecha" placeholder="Fecha de nacimiento">
+				<i v-show="!validation.fecha">El nombre no puede estar vacío.</i>
+				<br>
+
+				<label>Teléfono</label>
+				<br>
+				<input type="text" v-model="newUser.phone" placeholder="Fecha de nacimiento">
+				<i v-show="!validation.phone">El nombre no puede estar vacío.</i>
+				<br>
+
+
+				<label>Email</label>
+				<br>
+				<input type="email" v-model="newUser.email" placeholder="email@email.com">
+				<i v-show="!validation.phone">El nombre no puede estar vacío.</i>
+				<br>
+
+				<p>Datos de envío</p>
+				<label>Dirección</label>
+				<br>
+				<input type="text" v-model="newUser.address" placeholder="Dirección">
+				<i v-show="!validation.address">El nombre no puede estar vacío.</i>
+				<br>
+
+				<label>Ciudad</label>
+				<br>
+				<input type="text" v-model="newUser.city" placeholder="Ciudad">
+				<i v-show="!validation.city">El nombre no puede estar vacío.</i>
+				<br>
+
+				<label>Código Postal</label>
+				<br>
+				<input type="text" v-model="newUser.cp" placeholder="Código Postal">
+				<i v-show="!validation.cp">El nombre no puede estar vacío.</i>
+				<br>
+
+
+				<p>Datos de pago</p>
+				<input type="radio" id="uno" value="Uno">
+				<label for="uno">Uno</label>
+				<br>
+				<input type="radio" id="Dos" value="Dos">
+				<label for="Dos">Dos</label>
+				<br>
+
+				<label>Tarjeta de crédito</label>
+				<br>
+				<input type="text" v-model="newUser.credit" placeholder="arjeta de crédito">
+				<i v-show="!validation.credit">El nombre no puede estar vacío.</i>
+				<br>
+
+
+
+
+				<input class="btn__buy" type="submit" value="Comprar">
+			</form>
+
+			<div class="errors">
+				<ul class="errors">
+					<li v-show="!validation.name">El nombre no puede estar vacío.</li>
+					<li v-show="!validation.surname">El apellido no puede estar vacío.</li>
+					<li v-show="!validation.dni">Introduzca un DNI válido.</li>
+					<li v-show="!validation.fecha">Introduzca un formato de fecha válido.</li>
+					<li v-show="!validation.phone">Introduzca un teléfono válido.</li>
+					<li v-show="!validation.email">Introduzca un email válido.</li>
+					<li v-show="!validation.addrees">La dirección no puede estar vacía.</li>
+					<li v-show="!validation.city">El campo ciudad no puede estar vacío.</li>
+					<li v-show="!validation.cp">Introduzca un código postal válido.</li>
+					<li v-show="!validation.credit">Introduzca na tarjeta de c´redito válida.</li>
+					
+  				</ul>
+			</div>
+
+			
+
+
+		</div>`,
+
+		firebase: {
+			 users: usersRef
+		},
+
+		computed: {
+			validation: function () {
+		  return {
+			name: !!this.newUser.name.trim(),
+			surname: !!this.newUser.surname.trim(),
+			email: emailRE.test(this.newUser.email),
+			dni: dniRE.test(this.newUser.dni),
+			fecha: fechaRE.test(this.newUser.fecha),
+			phone: phoneRE.test(this.newUser.phone),
+			//address: !!this.newUser.address.trim(),
+			city: !!this.newUser.city.trim(),
+			cp: cpRE.test(this.newUser.cp),
+			credit: creditRE.test(this.newUser.credit),
+		  }//end return
+		},
+
+		isValid: function () {
+			  var validation = this.validation
+			  return Object.keys(validation).every(function (key) {
+				return validation[key]
+			  })
+		}//end is valid
+
+		},
+		methods: {
+		   addUser: function () {
+				if (this.isValid) {
+					usersRef.push(this.newUser)
+					this.newUser.name = ''
+					this.newUser.surname = ''
+					this.newUser.email = ''
+					this.newUser.dni = ''
+					this.newUser.cp = ''
+					this.newUser.phone = ''
+					this.newUser.city = ''
+					this.newUser.credit = ''
+					this.newUser.address = ''
+					this.newUser.fecha = ''
+				}//end if
+			},
+
+		},//end methods
+		data: function () {
+			return {
+				newUser: {
+					name: '',
+					surname: '',
+					email: '',
+					dni: '',
+					cp: '',
+					phone: '',
+					city: '',
+					credit: '',
+					address: '',
+					fecha: ''
+
+				},
+
+			}//end return
 		}
+	})
+
+	var app = new Vue({
+		el: '#app_endbuy',
+		template: `<buy_form></buy_form>`
 	});
-	
-	
-	
+		
 };//end onload
-					 
