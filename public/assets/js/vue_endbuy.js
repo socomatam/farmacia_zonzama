@@ -34,76 +34,71 @@ window.onload = function() {
 		<div id="app">
 			<form v-on:submit.prevent="addUser">
 				<h3>Introduzca sus datos para efectuar el envío</h3>
+				<h4>Datos personales</h4>
 				<label>Nombre</label>
 				<br>
 				<input type="text" v-model="newUser.name" placeholder="Nombre">
-				<i v-show="!validation.name">El nombre no puede estar vacío.</i>
+				
 				<br>
 
 				<label>Apellidos</label>
 				<br>
 				<input type="text" v-model="newUser.surname" placeholder="Apellidos">
-				<i v-show="!validation.surname">El nombre no puede estar vacío.</i>
+				
 				<br>
 
 				<label>DNI</label>
 				<br>
 				<input type="text" v-model="newUser.dni" placeholder="DNI">
-				<i v-show="!validation.dni">El nombre no puede estar vacío.</i>
+		
 				<br>
 
 
 				<label>Fecha Nacimiento</label>
 				<br>
 				<input type="text" v-model="newUser.fecha" placeholder="Fecha de nacimiento">
-				<i v-show="!validation.fecha">El nombre no puede estar vacío.</i>
+				
 				<br>
 
 				<label>Teléfono</label>
 				<br>
 				<input type="text" v-model="newUser.phone" placeholder="Fecha de nacimiento">
-				<i v-show="!validation.phone">El nombre no puede estar vacío.</i>
+				
 				<br>
 
 
 				<label>Email</label>
 				<br>
 				<input type="email" v-model="newUser.email" placeholder="email@email.com">
-				<i v-show="!validation.phone">El nombre no puede estar vacío.</i>
+		
 				<br>
 
-				<p>Datos de envío</p>
+				<h4>Datos de envío</h4>
 				<label>Dirección</label>
 				<br>
 				<input type="text" v-model="newUser.address" placeholder="Dirección">
-				<i v-show="!validation.address">El nombre no puede estar vacío.</i>
+		
 				<br>
 
 				<label>Ciudad</label>
 				<br>
 				<input type="text" v-model="newUser.city" placeholder="Ciudad">
-				<i v-show="!validation.city">El nombre no puede estar vacío.</i>
+			
 				<br>
 
 				<label>Código Postal</label>
 				<br>
 				<input type="text" v-model="newUser.cp" placeholder="Código Postal">
-				<i v-show="!validation.cp">El nombre no puede estar vacío.</i>
+			
 				<br>
 
 
-				<p>Datos de pago</p>
-				<input type="radio" id="uno" value="Uno">
-				<label for="uno">Uno</label>
-				<br>
-				<input type="radio" id="Dos" value="Dos">
-				<label for="Dos">Dos</label>
-				<br>
-
+				<h4>Datos de pago</h4>
+				
 				<label>Tarjeta de crédito</label>
 				<br>
 				<input type="text" v-model="newUser.credit" placeholder="arjeta de crédito">
-				<i v-show="!validation.credit">El nombre no puede estar vacío.</i>
+				
 				<br>
 
 
@@ -139,18 +134,18 @@ window.onload = function() {
 
 		computed: {
 			validation: function () {
-		  return {
-			name: !!this.newUser.name.trim(),
-			surname: !!this.newUser.surname.trim(),
-			email: emailRE.test(this.newUser.email),
-			dni: dniRE.test(this.newUser.dni),
-			fecha: fechaRE.test(this.newUser.fecha),
-			phone: phoneRE.test(this.newUser.phone),
-			//address: !!this.newUser.address.trim(),
-			city: !!this.newUser.city.trim(),
-			cp: cpRE.test(this.newUser.cp),
-			credit: creditRE.test(this.newUser.credit),
-		  }//end return
+				return {
+					name: !!this.newUser.name.trim(),
+					surname: !!this.newUser.surname.trim(),
+					email: emailRE.test(this.newUser.email),
+					dni: dniRE.test(this.newUser.dni),
+					fecha: fechaRE.test(this.newUser.fecha),
+					phone: phoneRE.test(this.newUser.phone),
+					//address: !!this.newUser.address.trim(),
+					city: !!this.newUser.city.trim(),
+					cp: cpRE.test(this.newUser.cp),
+					credit: creditRE.test(this.newUser.credit),
+				}//end return
 		},
 
 		isValid: function () {

@@ -634,12 +634,16 @@ table td{
 }
 
 #app form input{
-	width:30%;
+	width:100%;
 }
 
 #app {
 	display: grid;
-	grid-template-columns: 65% 35%;
+	grid-template-columns: 60% 40%;
+}
+
+#app div {
+	margin-top: 35%;
 }
 
 .btn__buy{
